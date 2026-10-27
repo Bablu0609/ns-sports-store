@@ -1,0 +1,2349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NS SPORTS | Cricket Equipment & Sports Store</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:#eaeded;font-family:'DM Sans',sans-serif;color:#0F1111;font-size:14px;}
+
+/* ══════════════════════════════════
+   AMAZON-STYLE COLOR SCHEME
+══════════════════════════════════ */
+:root{
+  --amz-dark:#131921;
+  --amz-mid:#232F3E;
+  --amz-orange:#FF9900;
+  --amz-orange-dark:#C45500;
+  --amz-blue:#007185;
+  --amz-blue-light:#00a8cc;
+  --amz-green:#007600;
+  --amz-red:#B12704;
+  --amz-yellow:#F0C14B;
+  --amz-bg:#EAEDED;
+  --amz-white:#fff;
+  --amz-border:#D5D9D9;
+  --amz-light-gray:#F7F8F8;
+  --amz-text:#0F1111;
+  --amz-gray:#565959;
+  --amz-link:#007185;
+  --price-color:#B12704;
+}
+
+/* ══════════════════════════════════
+   TOP DELIVERY BAR
+══════════════════════════════════ */
+.delivery-bar{
+  background:var(--amz-dark);color:rgba(255,255,255,.85);
+  font-size:12px;text-align:center;padding:5px 16px;
+  display:flex;align-items:center;justify-content:center;gap:6px;
+}
+.delivery-bar span{color:var(--amz-orange);font-weight:700;}
+
+/* ══════════════════════════════════
+   MAIN NAVBAR
+══════════════════════════════════ */
+.navbar{
+  background:var(--amz-dark);display:flex;align-items:center;
+  padding:8px 16px;gap:12px;position:sticky;top:0;z-index:300;
+}
+.nav-logo{color:white;text-decoration:none;display:flex;align-items:center;border:1px solid transparent;padding:6px 8px;border-radius:2px;}
+.nav-logo:hover{border-color:white;}
+.logo-text{font-family:'Bebas Neue';font-size:1.5rem;letter-spacing:3px;color:white;line-height:1;}
+.logo-text span{color:var(--amz-orange);}
+.logo-sub{font-size:9px;color:var(--amz-orange);letter-spacing:1px;margin-top:1px;}
+
+.deliver-to{color:white;font-size:11px;padding:6px 8px;border:1px solid transparent;border-radius:2px;cursor:pointer;white-space:nowrap;display:flex;flex-direction:column;}
+.deliver-to:hover{border-color:white;}
+.deliver-label{color:rgba(255,255,255,.65);font-size:10px;}
+.deliver-city{font-size:12px;font-weight:700;display:flex;align-items:center;gap:3px;}
+
+/* SEARCH BAR */
+.nav-search{flex:1;display:flex;border-radius:4px;overflow:hidden;max-width:700px;}
+.search-cat-select{
+  background:#F3F3F3;border:none;padding:0 10px;
+  font-size:11px;color:#555;cursor:pointer;border-right:1px solid #cdcdcd;
+  font-family:'DM Sans';white-space:nowrap;min-width:80px;
+}
+.search-cat-select:focus{outline:none;}
+.nav-search input{
+  flex:1;padding:9px 12px;border:none;font-family:'DM Sans';
+  font-size:14px;color:#111;outline:none;
+}
+.nav-search-btn{
+  background:var(--amz-orange);border:none;padding:9px 14px;
+  cursor:pointer;font-size:18px;transition:background .15s;
+  display:flex;align-items:center;justify-content:center;
+}
+.nav-search-btn:hover{background:var(--amz-orange-dark);}
+
+/* NAV RIGHT LINKS */
+.nav-right{display:flex;align-items:center;gap:4px;}
+.nav-btn{
+  color:white;background:none;border:1px solid transparent;
+  border-radius:2px;padding:6px 10px;cursor:pointer;
+  font-family:'DM Sans';text-align:left;transition:border-color .15s;
+  white-space:nowrap;
+}
+.nav-btn:hover{border-color:white;}
+.nav-btn-label{font-size:10px;color:rgba(255,255,255,.7);display:block;}
+.nav-btn-main{font-size:12px;font-weight:700;display:block;}
+.nav-cart-btn{
+  background:none;border:1px solid transparent;border-radius:2px;
+  padding:6px 10px;cursor:pointer;display:flex;align-items:center;
+  gap:6px;color:white;transition:border-color .15s;
+}
+.nav-cart-btn:hover{border-color:white;}
+.cart-icon-wrap{position:relative;}
+.cart-count-badge{
+  position:absolute;top:-8px;right:-8px;
+  background:var(--amz-orange);color:var(--amz-dark);
+  font-size:11px;font-weight:800;width:19px;height:19px;
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+}
+.cart-text{font-size:12px;font-weight:700;}
+
+/* ══════════════════════════════════
+   SECOND NAV (Category bar)
+══════════════════════════════════ */
+.cat-bar{
+  background:var(--amz-mid);display:flex;align-items:center;
+  padding:0 12px;overflow-x:auto;gap:0;flex-shrink:0;
+}
+.cat-bar::-webkit-scrollbar{display:none;}
+.cat-bar-item{
+  color:white;font-size:13px;font-weight:500;padding:10px 14px;
+  white-space:nowrap;cursor:pointer;border:1px solid transparent;
+  border-radius:2px;transition:border-color .15s;
+}
+.cat-bar-item:hover,.cat-bar-item.active{border-color:white;}
+.cat-bar-item.bold{font-weight:800;}
+
+/* ══════════════════════════════════
+   HERO CAROUSEL
+══════════════════════════════════ */
+.hero-wrap{position:relative;overflow:hidden;background:var(--amz-dark);}
+.hero-slides{display:flex;transition:transform .5s ease;}
+.hero-slide{
+  min-width:100%;height:300px;display:flex;align-items:center;
+  justify-content:space-between;padding:40px 80px;position:relative;overflow:hidden;
+}
+.hero-slide.s1{background:linear-gradient(135deg,#131921 0%,#1a3a2e 100%);}
+.hero-slide.s2{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 60%,#0f3460 100%);}
+.hero-slide.s3{background:linear-gradient(135deg,#2d1b00 0%,#5c3d00 60%,#f0c040 100%);}
+.hero-text-area{}
+.hero-tag{
+  display:inline-block;background:var(--amz-orange);color:var(--amz-dark);
+  font-size:10px;font-weight:800;letter-spacing:3px;text-transform:uppercase;
+  padding:4px 12px;border-radius:2px;margin-bottom:14px;
+}
+.hero-h1{font-family:'Bebas Neue';font-size:clamp(2.5rem,5vw,4.5rem);letter-spacing:2px;color:white;line-height:.95;margin-bottom:14px;}
+.hero-h1 em{color:var(--amz-orange);font-style:normal;}
+.hero-p{color:rgba(255,255,255,.7);font-size:15px;max-width:440px;line-height:1.7;margin-bottom:22px;}
+.hero-btn{
+  background:var(--amz-orange);color:var(--amz-dark);border:none;
+  padding:12px 32px;font-family:'DM Sans';font-weight:800;font-size:14px;
+  letter-spacing:.5px;border-radius:3px;cursor:pointer;transition:background .2s;
+}
+.hero-btn:hover{background:var(--amz-orange-dark);color:white;}
+.hero-badges{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap;}
+.hero-badge{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.8);font-size:11px;padding:4px 12px;border-radius:12px;}
+.hero-right{text-align:center;}
+.hero-emoji{font-size:clamp(6rem,12vw,10rem);}
+.hero-nav-btn{
+  position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.15);
+  border:none;color:white;width:40px;height:60px;font-size:1.3rem;cursor:pointer;
+  border-radius:3px;transition:background .2s;z-index:10;
+}
+.hero-nav-btn:hover{background:rgba(255,255,255,.3);}
+.hero-nav-btn.prev{left:10px;}
+.hero-nav-btn.next{right:10px;}
+.hero-dots{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:6px;}
+.hero-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.3);cursor:pointer;transition:background .2s;}
+.hero-dot.active{background:var(--amz-orange);}
+
+/* ══════════════════════════════════
+   MAIN CONTENT AREA
+══════════════════════════════════ */
+.main-layout{display:grid;grid-template-columns:220px 1fr;gap:16px;padding:16px;max-width:1500px;margin:0 auto;}
+
+/* ══════════════════════════════════
+   LEFT SIDEBAR
+══════════════════════════════════ */
+.left-sidebar{background:white;border:1px solid var(--amz-border);border-radius:4px;padding:16px;height:fit-content;position:sticky;top:68px;}
+.sidebar-title{font-size:16px;font-weight:800;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--amz-border);}
+.sb-section{margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--amz-border);}
+.sb-section:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+.sb-section-title{font-size:13px;font-weight:700;margin-bottom:10px;color:var(--amz-text);}
+.sb-item{display:flex;align-items:center;gap:8px;padding:4px 0;cursor:pointer;color:var(--amz-link);font-size:13px;}
+.sb-item:hover{text-decoration:underline;}
+.sb-item input[type=checkbox]{accent-color:var(--amz-orange);cursor:pointer;}
+.sb-item label{cursor:pointer;color:var(--amz-text);}
+.price-slider-wrap{margin:8px 0;}
+.price-slider{width:100%;accent-color:var(--amz-orange);}
+.price-inputs{display:flex;gap:8px;margin-top:8px;}
+.price-inp{width:80px;padding:5px 8px;border:1px solid var(--amz-border);border-radius:3px;font-size:12px;font-family:'DM Sans';}
+.price-inp:focus{outline:none;border-color:var(--amz-orange);}
+.apply-price-btn{background:var(--amz-yellow);border:1px solid #a88734;padding:5px 12px;font-size:12px;font-weight:600;border-radius:3px;cursor:pointer;margin-top:8px;width:100%;font-family:'DM Sans';}
+.apply-price-btn:hover{background:#e6b800;}
+.star-row{display:flex;align-items:center;gap:6px;padding:4px 0;cursor:pointer;}
+.star-row:hover{text-decoration:underline;}
+.star-stars{color:#FFA41C;font-size:14px;}
+.star-up{font-size:12px;color:var(--amz-link);}
+.sb-discount-row{display:flex;align-items:center;gap:6px;padding:4px 0;cursor:pointer;}
+.sb-discount-row:hover{text-decoration:underline;color:var(--amz-link);}
+.clear-all-btn{color:var(--amz-link);font-size:12px;cursor:pointer;margin-top:8px;background:none;border:none;font-family:'DM Sans';}
+.clear-all-btn:hover{text-decoration:underline;color:var(--amz-orange-dark);}
+
+/* ══════════════════════════════════
+   RIGHT CONTENT
+══════════════════════════════════ */
+.right-content{}
+
+/* Results bar */
+.results-bar{
+  background:white;border:1px solid var(--amz-border);border-radius:4px;
+  padding:10px 16px;display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:12px;flex-wrap:wrap;gap:8px;
+}
+.results-info{font-size:18px;color:var(--amz-text);}
+.results-info strong{color:var(--amz-gray);}
+.sort-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.sort-label-text{font-size:13px;color:var(--amz-gray);white-space:nowrap;}
+.sort-select{
+  padding:6px 10px;border:1px solid var(--amz-border);border-radius:3px;
+  font-size:13px;font-family:'DM Sans';background:var(--amz-light-gray);cursor:pointer;
+}
+.sort-select:focus{outline:none;border-color:var(--amz-orange);}
+.view-btns{display:flex;gap:4px;}
+.view-btn{background:var(--amz-light-gray);border:1px solid var(--amz-border);padding:5px 10px;border-radius:3px;cursor:pointer;font-size:14px;color:#555;transition:all .15s;}
+.view-btn.active{background:var(--amz-orange);border-color:var(--amz-orange-dark);color:var(--amz-dark);}
+
+/* ══════════════════════════════════
+   PRODUCT CARDS — GRID VIEW
+══════════════════════════════════ */
+.prod-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+.prod-grid.two-col{grid-template-columns:repeat(2,1fr);}
+
+.prod-card{
+  background:white;border:1px solid var(--amz-border);border-radius:4px;
+  overflow:hidden;position:relative;transition:box-shadow .2s;
+}
+.prod-card:hover{box-shadow:0 4px 20px rgba(0,0,0,.12);}
+
+/* PRODUCT IMAGE AREA */
+.card-img-area{
+  position:relative;background:#f7f8f8;height:200px;
+  display:flex;align-items:center;justify-content:center;overflow:hidden;
+  border-bottom:1px solid #f0f0f0;cursor:pointer;
+}
+.card-img-area img.pimg{
+  width:100%;height:100%;object-fit:contain;padding:16px;
+  transition:transform .3s;
+}
+.prod-card:hover .card-img-area img.pimg{transform:scale(1.05);}
+.no-img-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;height:100%;color:#aaa;gap:8px;}
+.no-img-placeholder .big-emoji{font-size:5rem;}
+.no-img-placeholder p{font-size:11px;text-align:center;max-width:100px;line-height:1.4;color:#aaa;}
+
+/* HOVER UPLOAD BUTTON */
+.upload-hover-btn{
+  position:absolute;bottom:8px;left:50%;transform:translateX(-50%);
+  background:rgba(0,0,0,.75);color:white;border:none;padding:6px 16px;
+  font-size:11px;font-weight:700;letter-spacing:.5px;border-radius:20px;
+  cursor:pointer;white-space:nowrap;opacity:0;transition:opacity .2s;
+  display:flex;align-items:center;gap:5px;
+}
+.prod-card:hover .upload-hover-btn{opacity:1;}
+.upload-hover-btn input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
+
+/* BADGES */
+.card-badge-wrap{position:absolute;top:8px;left:8px;display:flex;flex-direction:column;gap:4px;}
+.amz-badge{font-size:10px;font-weight:800;padding:3px 8px;border-radius:2px;letter-spacing:.5px;text-transform:uppercase;}
+.badge-best{background:#CC0C39;color:white;}
+.badge-new{background:#007185;color:white;}
+.badge-deal{background:var(--amz-orange);color:var(--amz-dark);}
+.badge-limited{background:#6B2FBE;color:white;}
+.badge-prime{background:var(--amz-dark);color:var(--amz-orange);border:1px solid var(--amz-orange);}
+
+/* WISHLIST */
+.wish-heart-btn{
+  position:absolute;top:8px;right:8px;background:white;border:1px solid #ddd;
+  width:30px;height:30px;border-radius:50%;display:flex;align-items:center;
+  justify-content:center;cursor:pointer;font-size:14px;transition:all .2s;
+  box-shadow:0 1px 4px rgba(0,0,0,.1);
+}
+.wish-heart-btn:hover{border-color:#cc0000;color:#cc0000;}
+.wish-heart-btn.active{color:#cc0000;border-color:#cc0000;background:#fff5f5;}
+
+/* QUICK VIEW OVERLAY */
+.quick-view-overlay{
+  position:absolute;inset:0;background:rgba(0,0,0,.4);display:flex;
+  align-items:center;justify-content:center;opacity:0;transition:opacity .2s;
+}
+.prod-card:hover .quick-view-overlay{opacity:1;}
+.qv-btn{
+  background:white;color:#0F1111;border:none;padding:8px 18px;
+  font-size:12px;font-weight:700;border-radius:3px;cursor:pointer;
+  font-family:'DM Sans';transition:background .15s;
+}
+.qv-btn:hover{background:#f0f0f0;}
+
+/* CARD BODY */
+.card-body{padding:10px 12px 12px;}
+.card-brand{font-size:11px;color:var(--amz-gray);margin-bottom:2px;}
+.card-name{font-size:13px;font-weight:600;color:var(--amz-link);cursor:pointer;line-height:1.35;margin-bottom:5px;}
+.card-name:hover{color:var(--amz-orange-dark);text-decoration:underline;}
+.card-stars{display:flex;align-items:center;gap:5px;margin-bottom:6px;}
+.cs-stars{color:#FFA41C;font-size:12px;letter-spacing:.3px;}
+.cs-count{font-size:11px;color:var(--amz-link);cursor:pointer;}
+.cs-count:hover{text-decoration:underline;color:var(--amz-orange-dark);}
+.bought-badge{background:#FEF9EF;border:1px solid #f5dda0;color:#6e4e00;font-size:10px;font-weight:600;padding:2px 7px;border-radius:10px;margin-bottom:6px;display:inline-block;}
+.price-block{margin-bottom:7px;}
+.price-main-amz{font-size:18px;font-weight:700;color:var(--price-color);}
+.price-sup{font-size:12px;font-weight:700;vertical-align:super;}
+.price-og-amz{font-size:11px;color:var(--amz-gray);text-decoration:line-through;margin-left:4px;}
+.price-save-badge{background:#CC0C39;color:white;font-size:10px;font-weight:700;padding:1px 6px;border-radius:2px;margin-left:4px;}
+.prime-tag{display:flex;align-items:center;gap:4px;font-size:11px;color:#007185;margin-bottom:6px;}
+.prime-logo{background:var(--amz-dark);color:var(--amz-orange);font-size:9px;font-weight:800;padding:1px 5px;border-radius:2px;font-family:'Bebas Neue';letter-spacing:1px;}
+.delivery-tag{font-size:11px;color:var(--amz-green);margin-bottom:6px;font-weight:500;}
+.stock-tag{font-size:11px;font-weight:600;margin-bottom:6px;}
+.in-stock{color:var(--amz-green);}
+.low-stock{color:#e47911;}
+.card-desc{font-size:11px;color:var(--amz-gray);line-height:1.5;margin-bottom:8px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+
+/* ADD TO CART */
+.atc-btn-amz{
+  width:100%;background:var(--amz-yellow);color:var(--amz-dark);
+  border:1px solid #a88734;border-radius:20px;padding:7px 10px;
+  font-family:'DM Sans';font-size:12px;font-weight:700;cursor:pointer;
+  transition:background .15s;display:flex;align-items:center;justify-content:center;gap:5px;
+  margin-bottom:5px;
+}
+.atc-btn-amz:hover{background:#e6b800;}
+.atc-btn-amz.added{background:#e6b800;}
+.buy-now-btn{
+  width:100%;background:#FF9900;color:var(--amz-dark);
+  border:1px solid #c45500;border-radius:20px;padding:7px 10px;
+  font-family:'DM Sans';font-size:12px;font-weight:700;cursor:pointer;
+  transition:background .15s;
+}
+.buy-now-btn:hover{background:#c45500;color:white;}
+
+/* ══════════════════════════════════
+   LIST VIEW
+══════════════════════════════════ */
+.prod-grid.list-view{display:flex;flex-direction:column;gap:12px;}
+.prod-grid.list-view .prod-card{display:grid;grid-template-columns:220px 1fr 180px;gap:0;}
+.prod-grid.list-view .card-img-area{height:100%;min-height:180px;border-bottom:none;border-right:1px solid #f0f0f0;}
+.prod-grid.list-view .card-body{padding:14px 16px;border-right:1px solid #f0f0f0;}
+.prod-grid.list-view .card-body .card-desc{-webkit-line-clamp:4;}
+.list-right-col{padding:14px 16px;display:flex;flex-direction:column;}
+.list-right-col .price-block{margin-bottom:10px;}
+.list-right-col .prime-tag{margin-bottom:10px;}
+
+/* ══════════════════════════════════
+   PRODUCT DETAIL MODAL (Amazon style)
+══════════════════════════════════ */
+.modal-overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:1000;
+  display:flex;align-items:flex-start;justify-content:center;
+  opacity:0;pointer-events:none;transition:opacity .25s;overflow-y:auto;padding:20px 16px;
+}
+.modal-overlay.open{opacity:1;pointer-events:all;}
+.pd-box{
+  background:white;border-radius:4px;max-width:900px;width:100%;
+  transform:translateY(20px);transition:transform .25s;position:relative;
+  margin:auto;
+}
+.modal-overlay.open .pd-box{transform:translateY(0);}
+.pd-close-btn{
+  position:absolute;top:12px;right:12px;background:#f0f0f0;border:none;
+  width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:16px;
+  color:#555;display:flex;align-items:center;justify-content:center;z-index:10;
+}
+.pd-close-btn:hover{background:#ddd;}
+.pd-grid{display:grid;grid-template-columns:1fr 1fr 240px;gap:0;}
+.pd-images-col{padding:20px;border-right:1px solid #f0f0f0;}
+.pd-main-img{
+  width:100%;aspect-ratio:1;background:#f7f8f8;border:1px solid #f0f0f0;
+  border-radius:4px;display:flex;align-items:center;justify-content:center;
+  overflow:hidden;margin-bottom:12px;cursor:zoom-in;
+}
+.pd-main-img img{width:100%;height:100%;object-fit:contain;padding:12px;transition:transform .3s;}
+.pd-main-img:hover img{transform:scale(1.1);}
+.pd-main-img .no-img-big{font-size:7rem;display:flex;align-items:center;justify-content:center;width:100%;height:100%;}
+.pd-thumbs{display:flex;gap:8px;flex-wrap:wrap;}
+.pd-thumb{
+  width:52px;height:52px;border:2px solid var(--amz-border);border-radius:3px;
+  display:flex;align-items:center;justify-content:center;cursor:pointer;overflow:hidden;
+  transition:border-color .15s;background:#f7f8f8;
+}
+.pd-thumb:hover,.pd-thumb.active{border-color:var(--amz-orange);}
+.pd-thumb img{width:100%;height:100%;object-fit:contain;padding:4px;}
+.pd-thumb span{font-size:1.6rem;}
+.pd-upload-area{
+  margin-top:14px;background:#FFF8EF;border:2px dashed var(--amz-orange);
+  border-radius:4px;padding:14px;text-align:center;position:relative;cursor:pointer;
+}
+.pd-upload-area:hover{background:#fff3e0;}
+.pd-upload-area input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
+.pd-upload-area .utext{font-size:12px;font-weight:700;color:var(--amz-orange-dark);margin-bottom:2px;}
+.pd-upload-area .usub{font-size:10px;color:#888;}
+
+.pd-info-col{padding:20px;border-right:1px solid #f0f0f0;}
+.pd-breadcrumb{font-size:11px;color:var(--amz-link);margin-bottom:10px;}
+.pd-breadcrumb span{color:var(--amz-gray);}
+.pd-title{font-size:20px;font-weight:700;color:var(--amz-text);margin-bottom:8px;line-height:1.3;}
+.pd-brand-link{font-size:13px;color:var(--amz-link);margin-bottom:8px;cursor:pointer;}
+.pd-brand-link:hover{text-decoration:underline;}
+.pd-stars-row{display:flex;align-items:center;gap:8px;margin-bottom:4px;}
+.pd-stars-row .s{color:#FFA41C;font-size:16px;}
+.pd-stars-row .rc{font-size:13px;color:var(--amz-link);cursor:pointer;}
+.pd-divider{border:none;border-top:1px solid var(--amz-border);margin:12px 0;}
+.pd-price-section{}
+.pd-price-big{font-size:26px;font-weight:700;color:var(--price-color);}
+.pd-price-big .sup{font-size:14px;vertical-align:super;font-weight:700;}
+.pd-price-sub{font-size:12px;color:var(--amz-gray);margin-top:2px;}
+.pd-saving{font-size:13px;color:var(--price-color);margin-top:4px;}
+.pd-prime-row{display:flex;align-items:center;gap:6px;font-size:13px;color:#007185;margin:8px 0;}
+.pd-delivery-info{font-size:13px;margin-bottom:8px;}
+.pd-delivery-info .loc{color:var(--amz-link);cursor:pointer;font-weight:600;}
+.pd-features-title{font-size:13px;font-weight:700;margin-bottom:6px;margin-top:10px;}
+.pd-features{list-style:none;display:flex;flex-direction:column;gap:5px;}
+.pd-features li{font-size:13px;color:#333;display:flex;gap:6px;align-items:flex-start;line-height:1.4;}
+.pd-features li::before{content:'•';color:var(--amz-orange);font-weight:800;flex-shrink:0;}
+.pd-specs{margin-top:12px;}
+.pd-specs-title{font-size:13px;font-weight:700;margin-bottom:6px;}
+.specs-table{width:100%;border-collapse:collapse;}
+.specs-table tr:nth-child(even){background:#f7f8f8;}
+.specs-table td{padding:5px 8px;font-size:12px;border:1px solid #f0f0f0;}
+.specs-table td:first-child{font-weight:600;color:#555;width:45%;}
+
+.pd-buy-col{padding:16px;background:#f7f8f8;}
+.buy-box{background:white;border:1px solid var(--amz-border);border-radius:4px;padding:14px;}
+.buy-price{font-size:22px;font-weight:700;color:var(--price-color);margin-bottom:4px;}
+.buy-sup{font-size:12px;vertical-align:super;}
+.buy-prime{display:flex;align-items:center;gap:5px;font-size:12px;color:#007185;margin-bottom:8px;}
+.buy-delivery{font-size:13px;margin-bottom:8px;color:var(--amz-gray);}
+.buy-delivery b{color:var(--amz-text);}
+.buy-sold-by{font-size:12px;color:var(--amz-gray);margin-bottom:10px;}
+.buy-sold-by span{color:var(--amz-link);cursor:pointer;}
+.stock-green{font-size:16px;font-weight:700;color:var(--amz-green);margin-bottom:10px;}
+.qty-select-wrap{display:flex;align-items:center;gap:8px;margin-bottom:12px;}
+.qty-select-wrap label{font-size:13px;font-weight:600;}
+.qty-select{
+  padding:5px 10px;border:1px solid var(--amz-border);border-radius:3px;
+  font-family:'DM Sans';font-size:13px;background:var(--amz-light-gray);cursor:pointer;
+}
+.pd-atc-btn{
+  width:100%;background:var(--amz-yellow);color:#0F1111;border:1px solid #a88734;
+  border-radius:20px;padding:9px;font-family:'DM Sans';font-size:13px;font-weight:700;
+  cursor:pointer;margin-bottom:8px;transition:background .15s;
+}
+.pd-atc-btn:hover{background:#e6b800;}
+.pd-buy-btn{
+  width:100%;background:#FF9900;color:#0F1111;border:1px solid #c45500;
+  border-radius:20px;padding:9px;font-family:'DM Sans';font-size:13px;font-weight:700;
+  cursor:pointer;margin-bottom:12px;transition:background .15s;
+}
+.pd-buy-btn:hover{background:#c45500;color:white;}
+.pd-wa-btn{
+  width:100%;background:#25D366;color:white;border:none;border-radius:20px;
+  padding:9px;font-family:'DM Sans';font-size:12px;font-weight:700;
+  cursor:pointer;margin-bottom:12px;display:flex;align-items:center;justify-content:center;gap:6px;
+}
+.pd-secure{font-size:11px;color:var(--amz-gray);text-align:center;margin-bottom:10px;display:flex;align-items:center;justify-content:center;gap:4px;}
+.return-policy{font-size:11px;background:#FEF9EF;border:1px solid #f5dda0;border-radius:3px;padding:8px 10px;color:#6e4e00;}
+
+/* ══════════════════════════════════
+   DEALS SECTION
+══════════════════════════════════ */
+.section-box{background:white;border:1px solid var(--amz-border);border-radius:4px;padding:16px;margin-bottom:16px;}
+.section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+.section-title{font-size:20px;font-weight:800;color:var(--amz-text);}
+.section-see-all{font-size:13px;color:var(--amz-link);cursor:pointer;}
+.section-see-all:hover{text-decoration:underline;color:var(--amz-orange-dark);}
+.deals-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+.deal-card{border:1px solid var(--amz-border);border-radius:4px;overflow:hidden;transition:box-shadow .2s;}
+.deal-card:hover{box-shadow:0 4px 20px rgba(0,0,0,.1);}
+.deal-img{height:140px;background:#f7f8f8;display:flex;align-items:center;justify-content:center;font-size:4rem;border-bottom:1px solid #f0f0f0;}
+.deal-body{padding:10px 12px;}
+.deal-disc{font-size:13px;font-weight:700;color:var(--price-color);margin-bottom:3px;}
+.deal-name{font-size:12px;font-weight:600;color:var(--amz-text);margin-bottom:4px;}
+.deal-price{font-size:14px;font-weight:700;color:var(--price-color);}
+.deal-og{font-size:11px;color:var(--amz-gray);text-decoration:line-through;}
+.deal-bar-wrap{margin-top:6px;}
+.deal-bar-label{font-size:10px;color:#cc0000;font-weight:600;margin-bottom:3px;}
+.deal-bar{background:#f0f0f0;height:5px;border-radius:3px;overflow:hidden;}
+.deal-bar-fill{background:#cc0000;height:100%;border-radius:3px;}
+
+/* ══════════════════════════════════
+   CUSTOMERS ALSO BOUGHT
+══════════════════════════════════ */
+.carousel-row{display:flex;gap:10px;overflow-x:auto;padding-bottom:4px;}
+.carousel-row::-webkit-scrollbar{height:4px;}
+.carousel-row::-webkit-scrollbar-thumb{background:#ddd;border-radius:2px;}
+.carousel-card{min-width:140px;flex-shrink:0;border:1px solid var(--amz-border);border-radius:4px;overflow:hidden;cursor:pointer;transition:box-shadow .2s;}
+.carousel-card:hover{box-shadow:0 2px 10px rgba(0,0,0,.1);}
+.cc-img{height:100px;background:#f7f8f8;display:flex;align-items:center;justify-content:center;font-size:2.8rem;}
+.cc-body{padding:8px 10px;}
+.cc-name{font-size:11px;font-weight:600;color:var(--amz-link);margin-bottom:3px;line-height:1.35;}
+.cc-price{font-size:13px;font-weight:700;color:var(--price-color);}
+.cc-stars{color:#FFA41C;font-size:10px;}
+
+/* ══════════════════════════════════
+   REVIEW SECTION
+══════════════════════════════════ */
+.reviews-grid{display:grid;grid-template-columns:180px 1fr;gap:20px;}
+.rating-summary{}
+.big-rating{font-family:'Bebas Neue';font-size:4rem;color:var(--amz-text);line-height:1;}
+.big-stars{color:#FFA41C;font-size:18px;margin-bottom:4px;}
+.total-reviews{font-size:12px;color:var(--amz-gray);}
+.rating-bars{margin-top:12px;display:flex;flex-direction:column;gap:5px;}
+.rbar-row{display:flex;align-items:center;gap:6px;cursor:pointer;}
+.rbar-label{font-size:12px;color:var(--amz-link);white-space:nowrap;}
+.rbar-label:hover{text-decoration:underline;}
+.rbar{background:#f0f0f0;flex:1;height:12px;border-radius:2px;overflow:hidden;}
+.rbar-fill{background:#FFA41C;height:100%;border-radius:2px;}
+.rbar-pct{font-size:11px;color:var(--amz-gray);width:30px;}
+.review-list{display:flex;flex-direction:column;gap:14px;}
+.review-item{border-bottom:1px solid var(--amz-border);padding-bottom:14px;}
+.review-item:last-child{border-bottom:none;padding-bottom:0;}
+.reviewer-name{font-size:13px;font-weight:700;margin-bottom:3px;}
+.review-stars{color:#FFA41C;font-size:13px;margin-bottom:3px;}
+.review-title{font-size:13px;font-weight:700;margin-bottom:5px;}
+.review-body{font-size:13px;color:#333;line-height:1.6;}
+.review-date{font-size:11px;color:var(--amz-gray);margin-top:5px;}
+.helpful-row{font-size:12px;color:var(--amz-gray);margin-top:6px;display:flex;align-items:center;gap:8px;}
+.helpful-btn{background:var(--amz-light-gray);border:1px solid var(--amz-border);padding:3px 10px;font-size:11px;border-radius:3px;cursor:pointer;font-family:'DM Sans';}
+
+/* ══════════════════════════════════
+   CART SIDEBAR
+══════════════════════════════════ */
+.cart-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:800;opacity:0;pointer-events:none;transition:opacity .3s;}
+.cart-overlay.open{opacity:1;pointer-events:all;}
+.cart-panel{
+  position:fixed;top:0;right:-480px;width:460px;max-width:100vw;
+  height:100vh;background:white;z-index:801;display:flex;flex-direction:column;
+  transition:right .35s cubic-bezier(.4,0,.2,1);box-shadow:-8px 0 40px rgba(0,0,0,.2);
+}
+.cart-panel.open{right:0;}
+.cp-head{padding:16px 20px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--amz-border);background:var(--amz-dark);}
+.cp-head h3{color:white;font-size:16px;font-weight:800;}
+.cp-close{background:none;border:none;color:white;font-size:1.2rem;cursor:pointer;}
+.cp-body{flex:1;overflow-y:auto;padding:16px;}
+.cp-empty{text-align:center;padding:50px 20px;color:#888;}
+.cp-empty .emp-icon{font-size:4rem;margin-bottom:12px;}
+.cp-empty p{font-size:14px;}
+.cart-item{display:flex;gap:12px;padding:14px 0;border-bottom:1px solid var(--amz-border);}
+.cart-item:last-child{border-bottom:none;}
+.ci-img{width:70px;height:70px;background:#f7f8f8;border:1px solid #eee;border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:2.2rem;flex-shrink:0;overflow:hidden;}
+.ci-img img{width:100%;height:100%;object-fit:contain;padding:4px;}
+.ci-info{flex:1;}
+.ci-name{font-size:13px;font-weight:600;color:var(--amz-link);margin-bottom:3px;line-height:1.3;}
+.ci-price{font-size:15px;font-weight:700;color:var(--price-color);margin-bottom:6px;}
+.ci-in-stock{font-size:11px;color:var(--amz-green);margin-bottom:6px;}
+.ci-actions{display:flex;align-items:center;gap:8px;}
+.ci-qty-wrap{display:flex;align-items:center;border:1px solid var(--amz-border);border-radius:3px;overflow:hidden;}
+.ci-qty-btn{background:var(--amz-light-gray);border:none;width:28px;height:28px;font-size:1rem;cursor:pointer;transition:background .15s;}
+.ci-qty-btn:hover{background:#ddd;}
+.ci-qty-num{padding:0 12px;font-size:13px;font-weight:700;}
+.ci-del-btn{background:none;border:none;color:var(--amz-link);font-size:12px;cursor:pointer;font-family:'DM Sans';}
+.ci-del-btn:hover{text-decoration:underline;color:var(--amz-orange-dark);}
+.ci-save-btn{background:none;border:none;color:var(--amz-link);font-size:12px;cursor:pointer;font-family:'DM Sans';}
+.ci-save-btn:hover{text-decoration:underline;}
+.cp-footer{padding:16px 20px;border-top:1px solid var(--amz-border);}
+.promo-bar{display:flex;gap:8px;margin-bottom:14px;}
+.promo-bar input{flex:1;padding:8px 10px;border:1px solid var(--amz-border);border-radius:3px;font-family:'DM Sans';font-size:13px;outline:none;}
+.promo-bar input:focus{border-color:var(--amz-orange);}
+.promo-bar button{background:var(--amz-yellow);border:1px solid #a88734;padding:8px 14px;font-size:12px;font-weight:700;border-radius:3px;cursor:pointer;font-family:'DM Sans';}
+.subtotal-box{font-size:16px;margin-bottom:4px;}
+.subtotal-box span{font-weight:700;}
+.tax-note{font-size:11px;color:var(--amz-gray);margin-bottom:12px;}
+.disc-applied{font-size:13px;color:var(--amz-green);font-weight:600;margin-bottom:8px;}
+.proceed-btn{
+  width:100%;background:var(--amz-yellow);color:#0F1111;border:1px solid #a88734;
+  border-radius:20px;padding:11px;font-family:'DM Sans';font-size:14px;font-weight:700;
+  cursor:pointer;margin-bottom:8px;transition:background .15s;
+}
+.proceed-btn:hover{background:#e6b800;}
+.wa-order-btn{
+  width:100%;background:#25D366;color:white;border:none;border-radius:20px;
+  padding:10px;font-family:'DM Sans';font-size:13px;font-weight:700;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;gap:7px;
+}
+.secure-note{font-size:11px;color:var(--amz-gray);text-align:center;margin-top:8px;}
+
+/* ══ ADMIN TABS ══ */
+.atab{background:none;border:none;color:rgba(255,255,255,.6);padding:11px 18px;font-size:13px;font-weight:600;cursor:pointer;border-bottom:3px solid transparent;font-family:'Noto Sans',sans-serif;transition:all .2s;}
+.atab:hover{color:white;background:rgba(255,255,255,.08);}
+.atab.active{color:#FF9900;border-bottom-color:#FF9900;background:rgba(255,153,0,.08);}
+.alabel{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#555;display:block;margin-bottom:4px;}
+.ainput{width:100%;padding:9px 11px;border:1px solid #ddd;border-radius:4px;font-family:'Noto Sans',sans-serif;font-size:13px;outline:none;color:#0F1111;transition:border-color .2s;}
+.ainput:focus{border-color:#FF9900;box-shadow:0 0 0 2px rgba(255,153,0,.15);}
+/* Product row in admin */
+.ap-row{display:flex;align-items:center;gap:10px;padding:11px 14px;border:1px solid #e2e8f0;border-radius:6px;margin-bottom:8px;background:#fafafa;transition:background .2s;}
+.ap-row:hover{background:#f0f7ff;}
+.ap-emoji{font-size:1.8rem;width:36px;text-align:center;flex-shrink:0;}
+.ap-info{flex:1;min-width:0;}
+.ap-name{font-size:13px;font-weight:700;color:#0F1111;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.ap-meta{font-size:11px;color:#888;margin-top:2px;}
+.ap-price{font-size:14px;font-weight:800;color:#B12704;white-space:nowrap;margin-right:4px;}
+.ap-edit-btn{background:#f0f7ff;border:1px solid #bfdbfe;color:#1e40af;padding:5px 12px;border-radius:4px;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;}
+.ap-del-btn{background:#fef2f2;border:1px solid #fecaca;color:#dc2626;padding:5px 12px;border-radius:4px;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;}
+.ap-del-btn:hover{background:#dc2626;color:white;}
+.ap-edit-btn:hover{background:#1e6fff;color:white;}
+.toast-box{
+  position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(10px);
+  background:var(--amz-dark);color:white;padding:11px 24px;border-radius:4px;
+  font-size:13px;font-weight:600;z-index:9999;opacity:0;pointer-events:none;
+  transition:opacity .3s,transform .3s;box-shadow:0 4px 20px rgba(0,0,0,.3);
+  display:flex;align-items:center;gap:8px;white-space:nowrap;
+}
+.toast-box.show{opacity:1;transform:translateX(-50%) translateY(0);}
+
+/* ══════════════════════════════════
+   FOOTER
+══════════════════════════════════ */
+.footer-back-top{background:var(--amz-mid);color:white;text-align:center;padding:14px;cursor:pointer;font-size:13px;font-weight:600;transition:background .2s;}
+.footer-back-top:hover{background:#3a4d63;}
+.footer-main{background:var(--amz-dark);color:rgba(255,255,255,.8);padding:32px;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
+.footer-col h4{font-size:14px;font-weight:700;color:white;margin-bottom:14px;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:7px;}
+.footer-col ul li{font-size:12px;color:rgba(255,255,255,.65);cursor:pointer;}
+.footer-col ul li:hover{text-decoration:underline;color:white;}
+.footer-bottom{background:#131921;color:rgba(255,255,255,.4);text-align:center;padding:14px;font-size:11px;border-top:1px solid rgba(255,255,255,.08);}
+.footer-logo-row{text-align:center;padding:16px;border-bottom:1px solid rgba(255,255,255,.1);margin-bottom:16px;}
+
+/* ══════════════════════════════════
+   SCROLL TO TOP
+══════════════════════════════════ */
+.scroll-top-btn{
+  position:fixed;bottom:24px;right:24px;z-index:500;
+  background:var(--amz-orange);color:var(--amz-dark);border:none;
+  width:42px;height:42px;border-radius:3px;font-size:1rem;font-weight:800;
+  cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.2);opacity:0;pointer-events:none;
+  transition:opacity .3s;
+}
+.scroll-top-btn.vis{opacity:1;pointer-events:all;}
+
+/* ══════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════ */
+@media(max-width:1100px){.prod-grid{grid-template-columns:repeat(3,1fr)!important;}}
+@media(max-width:900px){
+  .main-layout{grid-template-columns:1fr;padding:10px;}
+  .left-sidebar{display:none;}
+  .prod-grid{grid-template-columns:repeat(2,1fr)!important;}
+  .deals-grid{grid-template-columns:repeat(2,1fr);}
+  .pd-grid{grid-template-columns:1fr!important;}
+  .pd-images-col{border-right:none;border-bottom:1px solid #f0f0f0;}
+  .pd-info-col{border-right:none;}
+  .pd-buy-col{background:white;}
+  .footer-main{grid-template-columns:repeat(2,1fr);}
+  .hero-slide{padding:30px 24px;}
+  .reviews-grid{grid-template-columns:1fr;}
+  .prod-grid.list-view .prod-card{grid-template-columns:1fr!important;}
+}
+@media(max-width:560px){
+  .prod-grid{grid-template-columns:1fr!important;}
+  .navbar{flex-wrap:wrap;gap:8px;}
+  .nav-search{order:3;min-width:100%;}
+}
+
+/* ══ UPI PAYMENT MODAL ══ */
+.upi-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:3000;display:none;align-items:center;justify-content:center;}
+.upi-overlay.open{display:flex;}
+.upi-box{background:white;border-radius:12px;padding:0;max-width:360px;width:95%;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.4);animation:popIn .25s ease;}
+@keyframes popIn{from{transform:scale(.88);opacity:0;}to{transform:scale(1);opacity:1;}}
+.upi-head{background:linear-gradient(135deg,#1a3a6e,#1e6fff);color:white;padding:18px 20px;display:flex;align-items:center;justify-content:space-between;}
+.upi-head h3{font-size:16px;font-weight:700;}
+.upi-close{background:none;border:none;color:white;font-size:1.4rem;cursor:pointer;opacity:.8;}
+.upi-close:hover{opacity:1;}
+.upi-body{padding:20px;}
+.upi-amount-box{background:#f0f9ff;border:2px solid #bfdbfe;border-radius:8px;padding:14px;text-align:center;margin-bottom:16px;}
+.upi-amount-box .ua-label{font-size:12px;color:#555;margin-bottom:4px;}
+.upi-amount-box .ua-amount{font-size:2rem;font-weight:800;color:#0a1628;font-family:'Bebas Neue',sans-serif;}
+.upi-qr-wrap{text-align:center;margin-bottom:16px;}
+.upi-qr-wrap img{width:200px;height:200px;border:3px solid #e2e8f0;border-radius:8px;display:block;margin:0 auto 8px;}
+.upi-qr-wrap .upi-scan-label{font-size:12px;color:#555;font-weight:600;}
+.upi-id-row{display:flex;align-items:center;gap:8px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:10px 14px;margin-bottom:16px;}
+.upi-id-row .uid-label{font-size:11px;color:#888;display:block;margin-bottom:2px;}
+.upi-id-row .uid-val{font-size:14px;font-weight:700;color:#0a1628;flex:1;}
+.upi-copy-btn{background:#1e6fff;color:white;border:none;padding:6px 14px;border-radius:4px;font-size:12px;font-weight:700;cursor:pointer;}
+.upi-apps{display:flex;gap:8px;margin-bottom:16px;justify-content:center;}
+.upi-app-btn{flex:1;border:1px solid #e2e8f0;border-radius:6px;padding:8px 6px;text-align:center;cursor:pointer;font-size:11px;font-weight:600;color:#374151;transition:border-color .2s,background .2s;}
+.upi-app-btn:hover{border-color:#1e6fff;background:#f0f7ff;}
+.upi-app-btn div{font-size:1.5rem;margin-bottom:3px;}
+.upi-done-btn{width:100%;background:#22c55e;color:white;border:none;border-radius:6px;padding:12px;font-size:14px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;}
+.upi-done-btn:hover{background:#16a34a;}
+.upi-note{font-size:11px;color:#888;text-align:center;margin-top:10px;line-height:1.5;}
+/* UPI button in cart */
+.upi-pay-btn{width:100%;background:linear-gradient(135deg,#1a3a6e,#1e6fff);color:white;border:none;border-radius:20px;padding:11px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;cursor:pointer;margin-bottom:8px;display:flex;align-items:center;justify-content:center;gap:8px;transition:opacity .2s;}
+.upi-pay-btn:hover{opacity:.9;}
+</style>
+</head>
+<body>
+
+<!-- TOAST -->
+<div class="toast-box" id="toast"></div>
+<button class="scroll-top-btn" id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">▲</button>
+
+<!-- CART OVERLAY + PANEL -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+<div class="cart-panel" id="cartPanel">
+  <div class="cp-head">
+    <h3>🛒 Shopping Cart</h3>
+    <button class="cp-close" onclick="closeCart()">✕</button>
+  </div>
+  <div class="cp-body" id="cpBody">
+    <div class="cp-empty"><div class="emp-icon">🛒</div><p>Your NS SPORTS cart is empty</p></div>
+  </div>
+  <div class="cp-footer">
+    <div class="promo-bar">
+      <input id="promoInput" placeholder="Enter promo code (NSSPORTS10)">
+      <button onclick="applyPromo()">Apply</button>
+    </div>
+    <div class="subtotal-box" id="subtotalBox">Subtotal (0 items): <span>₹0</span></div>
+    <div class="tax-note">Inclusive of all taxes</div>
+    <div class="disc-applied" id="discLine" style="display:none"></div>
+    <div id="payButtons"></div>
+    <button onclick="document.getElementById('savedModal').classList.add('open');renderSavedItems();" style="width:100%;background:none;border:1px solid #ddd;border-radius:20px;padding:8px;font-size:12px;cursor:pointer;margin-top:6px;color:#007185;font-family:'Noto Sans',sans-serif;">💾 View Saved for Later</button>
+    <div class="secure-note">🔒 Choose UPI QR, Card, Cash on Delivery or WhatsApp. Payment is confirmed only after the store verifies it.</div>
+  </div>
+</div>
+
+<!-- PRODUCT DETAIL MODAL -->
+<div class="modal-overlay" id="pdModal">
+  <div class="pd-box" id="pdContent">
+    <button class="pd-close-btn" onclick="closePD()">✕</button>
+  </div>
+</div>
+
+<!-- ADMIN PANEL MODAL -->
+<div class="modal-overlay" id="adminModal" style="z-index:2000;align-items:flex-start;padding-top:20px;">
+  <div class="pd-box" style="max-width:780px;padding:0;overflow:hidden;max-height:90vh;display:flex;flex-direction:column;">
+    <!-- Admin Header -->
+    <div style="background:#131921;color:white;padding:16px 22px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;">
+      <div>
+        <div style="font-size:18px;font-weight:800;">⚙️ NS Sports Admin Panel</div>
+        <div style="font-size:11px;color:rgba(255,255,255,.5);margin-top:2px;">Ctrl+Shift+A to open · All changes save instantly</div>
+      </div>
+      <button onclick="closeAdmin()" style="background:rgba(255,255,255,.1);border:none;color:white;width:32px;height:32px;border-radius:50%;font-size:1.1rem;cursor:pointer;">✕</button>
+    </div>
+    <!-- Tabs -->
+    <div style="display:flex;background:#232f3e;flex-shrink:0;">
+      <button class="atab active" id="atab1" onclick="switchAdminTab(1)">📦 Products</button>
+      <button class="atab" id="atab2" onclick="switchAdminTab(2)">➕ Add Product</button>
+      <button class="atab" id="atab3" onclick="switchAdminTab(3)">📱 Contact & Social</button>
+      <button class="atab" id="atab4" onclick="switchAdminTab(4)">💳 Payments</button>
+    </div>
+    <!-- Tab Content -->
+    <div style="overflow-y:auto;flex:1;padding:20px;">
+
+      <!-- TAB 1: MANAGE PRODUCTS -->
+      <div id="apanel1">
+        <div style="font-size:13px;color:#555;margin-bottom:14px;">Click <strong>Edit</strong> to change name/price. Click <strong>🗑 Delete</strong> to remove a product from your store.</div>
+        <div id="adminProductList"></div>
+      </div>
+
+      <!-- TAB 2: ADD NEW PRODUCT -->
+      <div id="apanel2" style="display:none;">
+        <div style="font-size:13px;color:#555;margin-bottom:16px;">Fill in the details below to add a new product to your store.</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <div style="grid-column:span 2;">
+            <label class="alabel">Product Name *</label>
+            <input id="new_name" class="ainput" placeholder="e.g. NS Power Blaster Pro">
+          </div>
+          <div>
+            <label class="alabel">Price (₹) *</label>
+            <input id="new_price" class="ainput" type="number" placeholder="e.g. 2499">
+          </div>
+          <div>
+            <label class="alabel">Original Price (₹) — for showing discount</label>
+            <input id="new_orig" class="ainput" type="number" placeholder="e.g. 3499 (optional)">
+          </div>
+          <div>
+            <label class="alabel">Category</label>
+            <select id="new_cat" class="ainput">
+              <option value="pro">Pro Series</option>
+              <option value="club">Club Series</option>
+              <option value="starter">Starter</option>
+              <option value="junior">Junior</option>
+              <option value="accessories">Accessories</option>
+            </select>
+          </div>
+          <div>
+            <label class="alabel">Product Image</label>
+            <input
+                    id="new_emoji"
+                    class="ainput"
+                    type="file"
+                    accept="image/*"
+                    onchange="previewProductImage(event)"
+            >
+
+            <img
+                    id="product_image_preview"
+                    src=""
+                    alt="Product preview"
+                    style="display:none; width:100px; height:100px;
+           object-fit:contain; margin-top:10px;"
+            >
+          </div>
+
+          <div>
+            <label class="alabel">Stock Quantity</label>
+            <input id="new_stock" class="ainput" type="number" placeholder="e.g. 20" value="20">
+          </div>
+          <div>
+            <label class="alabel">Badge Label</label>
+            <input id="new_badge" class="ainput" placeholder="e.g. NEW, SALE, HOT">
+          </div>
+          <div style="grid-column:span 2;">
+            <label class="alabel">Short Description</label>
+            <textarea id="new_desc" class="ainput" rows="2" style="resize:vertical;" placeholder="Describe the product in 1–2 lines..."></textarea>
+          </div>
+          <div style="grid-column:span 2;">
+            <label class="alabel">Key Features (one per line)</label>
+            <textarea id="new_features" class="ainput" rows="4" style="resize:vertical;" placeholder="Grade 1 English Willow&#10;Short handle for box cricket&#10;Pre-knocked and ready to play&#10;1-Year warranty"></textarea>
+          </div>
+        </div>
+        <button onclick="addNewProduct()" style="margin-top:16px;width:100%;background:#22c55e;color:white;border:none;padding:12px;font-size:14px;font-weight:700;border-radius:4px;cursor:pointer;">➕ Add Product to Store</button>
+      </div>
+
+      <!-- TAB 3: CONTACT & SOCIAL -->
+      <div id="apanel3" style="display:none;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+          <div>
+            <label class="alabel">WhatsApp Number (with country code)</label>
+            <input id="adWa" class="ainput" value="">
+          </div>
+          <div>
+            <label class="alabel">Display Phone Number</label>
+            <input id="adPhone" class="ainput" value="">
+          </div>
+          <div>
+            <label class="alabel">📸 Instagram URL</label>
+            <input id="adInsta" class="ainput" value="https://www.instagram.com/nandu_sports_12/">
+          </div>
+          <div style="grid-column:span 2;">
+            <label class="alabel">Store Tagline (shown in navbar/footer)</label>
+            <input id="adTagline" class="ainput" value="Your Local Cricket & Sports Store">
+          </div>
+        </div>
+        <button onclick="saveContactSettings()" style="margin-top:16px;width:100%;background:var(--amz-yellow);border:1px solid #a88734;padding:12px;font-size:14px;font-weight:700;border-radius:4px;cursor:pointer;">💾 Save Contact Settings</button>
+      </div>
+
+      <!-- TAB 4: PAYMENTS -->
+      <div id="apanel4" style="display:none;">
+        <div style="background:#f0f7ff;border:1px solid #bfdbfe;border-radius:6px;padding:14px;margin-bottom:16px;">
+          <div style="font-size:14px;font-weight:800;margin-bottom:4px;">📱 UPI Payment QR (Owner)</div>
+          <div style="font-size:12px;color:#555;margin-bottom:12px;">Upload your own QR, set your UPI ID and name. Customers will see these at checkout. Use only an account that belongs to you or your store.</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+            <div><label class="alabel">UPI ID</label><input id="adUpiId" class="ainput" placeholder="name@bank"></div>
+            <div><label class="alabel">Payee name (as on UPI app)</label><input id="adUpiPayee" class="ainput" placeholder="NS SPORTS"></div>
+            <div style="grid-column:span 2;">
+              <label class="alabel">Payment QR image</label>
+              <input id="adUpiQrFile" class="ainput" type="file" accept="image/*" onchange="previewUpiQr(event)">
+              <img id="adUpiQrPreview" src="" alt="QR preview" style="display:none;width:160px;height:auto;margin-top:10px;border:1px solid #ddd;border-radius:6px;">
+            </div>
+            <div style="grid-column:span 2;">
+              <label class="alabel">Admin password (ADMIN_PASSWORD from your server .env)</label>
+              <input id="adAdminKey" class="ainput" type="password" autocomplete="off" placeholder="Required to save">
+            </div>
+          </div>
+          <button onclick="saveUpiSettings()" style="margin-top:14px;width:100%;background:#1e6fff;color:white;border:none;padding:11px;font-size:14px;font-weight:700;border-radius:4px;cursor:pointer;">💾 Save UPI &amp; QR</button>
+        </div>
+
+        <div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:6px;padding:14px;margin-bottom:16px;font-size:13px;">
+          ✅ <strong>UPI setup required:</strong> Add your own verified UPI ID and QR before accepting payments. Do not use another person’s payment details.
+        </div>
+        <div style="background:#f0f7ff;border:1px solid #bfdbfe;border-radius:6px;padding:14px;margin-bottom:16px;font-size:13px;">
+          <strong>💳 Add Razorpay</strong> (accept Cards, Net Banking, EMI, Wallets)<br>
+          1. Go to <a href="https://razorpay.com" target="_blank" style="color:#1e40af;">razorpay.com</a> → Create free account<br>
+          2. Submit Aadhaar + PAN + Bank account (2–3 days)<br>
+          3. Dashboard → Settings → API Keys → Copy Key ID<br>
+          4. Paste below and Save
+        </div>
+        <div style="background:#fff7ed;border:1px solid #fed7aa;border-radius:6px;padding:12px;margin-bottom:12px;font-size:13px;">
+          <strong>Server-side payment setup</strong><br>Set RAZORPAY_KEY_ID and RAZORPAY_KEY_SECRET in your local .env file. Use Razorpay TEST keys while developing. Never paste the secret into this page.
+        </div>
+        <div style="background:#fff8ee;border:1px solid #f5c069;border-radius:6px;padding:14px;font-size:13px;">
+          <strong>📦 Promo Code:</strong> Current active code is <strong>NSSPORTS10</strong> (10% off).<br>
+          <label class="alabel" style="margin-top:10px;">Change Promo Code</label>
+          <input id="adPromo" class="ainput" value="NSSPORTS10" placeholder="e.g. SUMMER20">
+          <label class="alabel" style="margin-top:8px;">Discount %</label>
+          <input id="adPromoDisc" class="ainput" type="number" value="10" min="1" max="90">
+        </div>
+        <button onclick="savePaymentSettings()" style="margin-top:16px;width:100%;background:var(--amz-yellow);border:1px solid #a88734;padding:12px;font-size:14px;font-weight:700;border-radius:4px;cursor:pointer;">💾 Save Payment Settings</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- EDIT PRODUCT MODAL -->
+<div class="modal-overlay" id="editProdModal" style="z-index:2100;">
+  <div class="pd-box" style="max-width:560px;padding:24px;">
+    <button onclick="closeEditProd()" style="position:absolute;top:14px;right:14px;background:#f0f2f2;border:none;width:30px;height:30px;border-radius:50%;cursor:pointer;font-size:1rem;">✕</button>
+    <div style="font-size:18px;font-weight:800;margin-bottom:16px;color:#0F1111;">✏️ Edit Product</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+      <div style="grid-column:span 2;"><label class="alabel">Product Name</label><input id="ep_name" class="ainput"></div>
+      <div><label class="alabel">Price (₹)</label><input id="ep_price" class="ainput" type="number"></div>
+      <div><label class="alabel">Original Price (₹)</label><input id="ep_orig" class="ainput" type="number"></div>
+      <div><label class="alabel">Category</label>
+        <select id="ep_cat" class="ainput">
+          <option value="pro">Pro Series</option><option value="club">Club Series</option>
+          <option value="starter">Starter</option><option value="junior">Junior</option>
+          <option value="accessories">Accessories</option>
+        </select>
+      </div>
+      <div><label class="alabel">Stock Qty</label><input id="ep_stock" class="ainput" type="number"></div>
+      <div><label class="alabel">Badge</label><input id="ep_badge" class="ainput"></div>
+      <div><label class="alabel">Emoji</label>
+        <select id="ep_emoji" class="ainput">
+          <option>🏏</option><option>⚡</option><option>🔥</option><option>🎯</option>
+          <option>🏆</option><option>🧤</option><option>⛑️</option><option>🦵</option>
+          <option>🎒</option><option>🏀</option><option>🪵</option>
+        </select>
+      </div>
+      <div style="grid-column:span 2;"><label class="alabel">Description</label><textarea id="ep_desc" class="ainput" rows="2" style="resize:vertical;"></textarea></div>
+    </div>
+    <input type="hidden" id="ep_id">
+    <button onclick="saveEditProduct()" style="margin-top:16px;width:100%;background:#1e6fff;color:white;border:none;padding:12px;font-size:14px;font-weight:700;border-radius:4px;cursor:pointer;">💾 Save Changes</button>
+  </div>
+</div>
+
+<!-- ════════════════════════════════
+     DELIVERY BAR
+════════════════════════════════ -->
+<div class="delivery-bar">
+  🚀 <span>FREE delivery</span> on orders above ₹1,499 &nbsp;·&nbsp;
+  Use code <span>NSSPORTS10</span> for 10% OFF &nbsp;·&nbsp;
+  <span>Warranty terms</span> vary by product &nbsp;·&nbsp;
+  Cricket Equipment & Sports Accessories
+</div>
+
+<!-- ════════════════════════════════
+     MAIN NAVBAR
+════════════════════════════════ -->
+<nav class="navbar">
+  <a href="#" class="nav-logo">
+    <div>
+      <div class="logo-text">NS <span>SPORTS</span></div>
+      <div class="logo-sub">.in</div>
+    </div>
+  </a>
+
+  <div class="deliver-to">
+    <span class="deliver-label">📍 Deliver to</span>
+    <span class="deliver-city">📦 Mumbai 400017</span>
+  </div>
+
+  <div class="nav-search">
+    <select class="search-cat-select" id="searchCat">
+      <option>All</option>
+      <option>Bats</option>
+      <option>Accessories</option>
+      <option>Junior</option>
+      <option>Bundles</option>
+    </select>
+    <input type="text" id="searchInput" placeholder="Search for box cricket bats, accessories..." oninput="liveSearch()">
+    <button class="nav-search-btn" onclick="liveSearch()">🔍</button>
+  </div>
+
+  <div class="nav-right">
+    <button class="nav-btn" onclick="window.open('https://www.instagram.com/nandu_sports_12/','_blank')" title="Follow us on Instagram" style="background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);border-color:transparent;padding:7px 10px;">
+      <span style="font-size:18px;">📸</span>
+      <span class="nav-btn-main" style="font-size:10px;">Instagram</span>
+    </button>
+    <button class="nav-btn" onclick="openAdmin()">
+      <span class="nav-btn-label">Hello, Owner</span>
+      <span class="nav-btn-main">⚙️ Admin ▾</span>
+    </button>
+    <button class="nav-btn" onclick="openInfoModal('orders')">
+      <span class="nav-btn-label">Returns &</span>
+      <span class="nav-btn-main">Orders</span>
+    </button>
+    <button class="nav-cart-btn" onclick="openCart()">
+      <div class="cart-icon-wrap">
+        <span style="font-size:22px;">🛒</span>
+        <div class="cart-count-badge" id="cartBadge">0</div>
+      </div>
+      <span class="cart-text">Cart</span>
+    </button>
+  </div>
+</nav>
+
+<!-- ════════════════════════════════
+     CATEGORY BAR
+════════════════════════════════ -->
+<div class="cat-bar" id="catBar">
+  <div class="cat-bar-item bold active" onclick="filterCat('all',this)">☰ All</div>
+  <div class="cat-bar-item" onclick="filterCat('all',this)">Today's Deals</div>
+  <div class="cat-bar-item" onclick="filterCat('pro',this)">Pro Series</div>
+  <div class="cat-bar-item" onclick="filterCat('club',this)">Club Series</div>
+  <div class="cat-bar-item" onclick="filterCat('starter',this)">Starter Bats</div>
+  <div class="cat-bar-item" onclick="filterCat('junior',this)">Junior Bats</div>
+  <div class="cat-bar-item" onclick="filterCat('accessories',this)">Accessories</div>
+  <div class="cat-bar-item" onclick="filterCat('all',this)">Bulk Orders</div>
+  <div class="cat-bar-item" onclick="filterCat('all',this)">🔥 Deals & Offers</div>
+  <div class="cat-bar-item" onclick="scrollToSection('reviewsSection')">Customer Reviews</div>
+  <div class="cat-bar-item" onclick="contactWhatsApp()">💬 WhatsApp Us</div>
+</div>
+
+<!-- ════════════════════════════════
+     HERO CAROUSEL
+════════════════════════════════ -->
+<div class="hero-wrap">
+  <div class="hero-slides" id="heroSlides">
+    <div class="hero-slide s1">
+      <div class="hero-text-area">
+        <div class="hero-tag">🏆 #1 Best Seller — Mumbai</div>
+        <div class="hero-h1">PREMIUM BATS<br>FOR <em>BOX CRICKET</em></div>
+        <div class="hero-p">Grade 1 English Willow. Built for Mumbai's box cricket lanes. Tournament approved. Free delivery above ₹1,499.</div>
+        <div class="hero-badges">
+          <span class="hero-badge">✅ 1-Year Warranty</span>
+          <span class="hero-badge">🚚 Free Delivery</span>
+          <span class="hero-badge">↩️ 7-Day Returns</span>
+        </div>
+        <button class="hero-btn" style="margin-top:18px" onclick="scrollToSection('shopSection')">Shop Now →</button>
+      </div>
+      <div class="hero-right"><div class="hero-emoji">🏏</div></div>
+    </div>
+    <div class="hero-slide s2">
+      <div class="hero-text-area">
+        <div class="hero-tag">⚡ New Arrival</div>
+        <div class="hero-h1">LIGHTNING ROD<br><em>ELITE</em> SERIES</div>
+        <div class="hero-p">Carbon composite handle. Ultra-light blade. Built for explosive box cricket innings. Limited stock!</div>
+        <div class="hero-badges">
+          <span class="hero-badge">⚡ Carbon Handle</span>
+          <span class="hero-badge">🏏 Wide Edge</span>
+          <span class="hero-badge">🔥 Only 5 Left</span>
+        </div>
+        <button class="hero-btn" style="margin-top:18px" onclick="openPD('p3')">View Product →</button>
+      </div>
+      <div class="hero-right"><div class="hero-emoji">⚡</div></div>
+    </div>
+    <div class="hero-slide s3">
+      <div class="hero-text-area">
+        <div class="hero-tag" style="background:var(--amz-dark);color:var(--amz-orange);">🎁 Mega Deal</div>
+        <div class="hero-h1">SAVE UP TO<br><em>₹1,500</em> TODAY</div>
+        <div class="hero-p">Use code <strong>NSSPORTS10</strong> for an extra 10% OFF on all bats. Limited time offer!</div>
+        <div class="hero-badges">
+          <span class="hero-badge">🏷️ Code: NSSPORTS10</span>
+          <span class="hero-badge">⏰ Limited Time</span>
+        </div>
+        <button class="hero-btn" style="margin-top:18px;background:var(--amz-dark);color:var(--amz-orange)" onclick="scrollToSection('shopSection')">Grab the Deal →</button>
+      </div>
+      <div class="hero-right"><div class="hero-emoji">🎁</div></div>
+    </div>
+  </div>
+  <button class="hero-nav-btn prev" onclick="slideHero(-1)">‹</button>
+  <button class="hero-nav-btn next" onclick="slideHero(1)">›</button>
+  <div class="hero-dots" id="heroDots">
+    <div class="hero-dot active" onclick="goSlide(0)"></div>
+    <div class="hero-dot" onclick="goSlide(1)"></div>
+    <div class="hero-dot" onclick="goSlide(2)"></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════
+     TODAY'S DEALS
+════════════════════════════════ -->
+<div style="padding:16px 16px 0;max-width:1500px;margin:0 auto;">
+  <div class="section-box">
+    <div class="section-header">
+      <div class="section-title">⚡ Today's Deals</div>
+      <div class="section-see-all" onclick="scrollToSection('shopSection')">See all deals</div>
+    </div>
+    <div class="deals-grid" id="dealsGrid"></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════
+     MAIN SHOP LAYOUT
+════════════════════════════════ -->
+<div class="main-layout" id="shopSection">
+
+  <!-- LEFT SIDEBAR -->
+  <div class="left-sidebar">
+    <div class="sidebar-title">🔍 Filter Results</div>
+
+    <div class="sb-section">
+      <div class="sb-section-title">Department</div>
+      <div class="sb-item" onclick="filterCat('all',null)">All Cricket Equipment</div>
+      <div class="sb-item" onclick="filterCat('pro',null)">Pro Series Bats</div>
+      <div class="sb-item" onclick="filterCat('club',null)">Club Series Bats</div>
+      <div class="sb-item" onclick="filterCat('starter',null)">Starter Bats</div>
+      <div class="sb-item" onclick="filterCat('junior',null)">Junior Bats</div>
+      <div class="sb-item" onclick="filterCat('accessories',null)">Accessories</div>
+    </div>
+
+    <div class="sb-section">
+      <div class="sb-section-title">Price</div>
+      <div class="sb-item"><input type="checkbox" id="p-u500" onchange="filterCheckbox()"><label for="p-u500">Under ₹500</label></div>
+      <div class="sb-item"><input type="checkbox" id="p-5001k" onchange="filterCheckbox()"><label for="p-5001k">₹500–₹1,000</label></div>
+      <div class="sb-item"><input type="checkbox" id="p-1k3k" onchange="filterCheckbox()"><label for="p-1k3k">₹1,000–₹3,000</label></div>
+      <div class="sb-item"><input type="checkbox" id="p-3kplus" onchange="filterCheckbox()"><label for="p-3kplus">Above ₹3,000</label></div>
+      <div class="price-inputs" style="margin-top:8px;">
+        <input class="price-inp" type="number" id="minPrice" placeholder="Min ₹" oninput="filterCheckbox()">
+        <span style="font-size:12px;color:#888">–</span>
+        <input class="price-inp" type="number" id="maxPrice" placeholder="Max ₹" oninput="filterCheckbox()">
+      </div>
+      <button class="apply-price-btn" onclick="filterCheckbox()">Go</button>
+    </div>
+
+    <div class="sb-section">
+      <div class="sb-section-title">Avg. Customer Review</div>
+      <div class="star-row"><span class="star-stars">★★★★</span><span style="color:#FFA41C">☆</span> <span class="star-up">& Up</span></div>
+      <div class="star-row"><span class="star-stars">★★★</span><span style="color:#FFA41C">☆☆</span> <span class="star-up">& Up</span></div>
+      <div class="star-row"><span class="star-stars">★★</span><span style="color:#FFA41C">☆☆☆</span> <span class="star-up">& Up</span></div>
+    </div>
+
+    <div class="sb-section">
+      <div class="sb-section-title">Availability</div>
+      <div class="sb-item"><input type="checkbox" id="f-instock" checked onchange="filterCheckbox()"><label for="f-instock">Include Out of Stock</label></div>
+      <div class="sb-item"><input type="checkbox" id="f-free" onchange="filterCheckbox()"><label for="f-free">Free Delivery Only</label></div>
+    </div>
+
+    <div class="sb-section">
+      <div class="sb-section-title">Discount</div>
+      <div class="sb-item"><input type="checkbox" id="f-disc10" onchange="filterCheckbox()"><label for="f-disc10">10% off or more</label></div>
+      <div class="sb-item"><input type="checkbox" id="f-disc25" onchange="filterCheckbox()"><label for="f-disc25">25% off or more</label></div>
+    </div>
+
+    <div class="sb-section">
+      <div class="sb-section-title">Seller</div>
+      <div class="sb-item"><input type="checkbox" checked><label>NS Sports (Official)</label></div>
+    </div>
+
+    <button class="clear-all-btn" onclick="clearFilters()">✕ Clear all filters</button>
+  </div>
+
+  <!-- RIGHT CONTENT -->
+  <div class="right-content">
+
+    <!-- RESULTS BAR -->
+    <div class="results-bar">
+      <div class="results-info" id="resultsInfo">1-5 of <strong>5 results</strong> for <em>"Box Cricket Bats"</em></div>
+      <div class="sort-row">
+        <span class="sort-label-text">Sort by:</span>
+        <select class="sort-select" id="sortSelect" onchange="renderProducts()">
+          <option value="featured">Featured</option>
+          <option value="low">Price: Low to High</option>
+          <option value="high">Price: High to Low</option>
+          <option value="rating">Avg. Customer Review</option>
+          <option value="newest">Newest Arrivals</option>
+        </select>
+        <div class="view-btns">
+          <button class="view-btn active" id="gridViewBtn" onclick="setView('grid')">⊞</button>
+          <button class="view-btn" id="listViewBtn" onclick="setView('list')">☰</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRODUCTS GRID -->
+    <div class="prod-grid" id="prodGrid"></div>
+
+    <!-- CUSTOMERS ALSO BOUGHT -->
+    <div class="section-box" style="margin-top:16px;">
+      <div class="section-header">
+        <div class="section-title">Customers Also Bought</div>
+        <div class="section-see-all">See more</div>
+      </div>
+      <div class="carousel-row" id="alsobought"></div>
+    </div>
+
+    <!-- REVIEWS SECTION -->
+    <div class="section-box" id="reviewsSection">
+      <div class="section-title" style="margin-bottom:16px;">⭐ Customer Reviews</div>
+      <div class="reviews-grid">
+        <div class="rating-summary">
+          <div class="big-rating">4.7</div>
+          <div class="big-stars">★★★★★</div>
+          <div style="font-size:12px;color:#888">out of 5</div>
+          <div class="total-reviews">352 global ratings</div>
+          <div class="rating-bars">
+            <div class="rbar-row"><span class="rbar-label">5 star</span><div class="rbar"><div class="rbar-fill" style="width:72%"></div></div><span class="rbar-pct">72%</span></div>
+            <div class="rbar-row"><span class="rbar-label">4 star</span><div class="rbar"><div class="rbar-fill" style="width:18%"></div></div><span class="rbar-pct">18%</span></div>
+            <div class="rbar-row"><span class="rbar-label">3 star</span><div class="rbar"><div class="rbar-fill" style="width:6%"></div></div><span class="rbar-pct">6%</span></div>
+            <div class="rbar-row"><span class="rbar-label">2 star</span><div class="rbar"><div class="rbar-fill" style="width:3%"></div></div><span class="rbar-pct">3%</span></div>
+            <div class="rbar-row"><span class="rbar-label">1 star</span><div class="rbar"><div class="rbar-fill" style="width:1%"></div></div><span class="rbar-pct">1%</span></div>
+          </div>
+        </div>
+        <div class="review-list" id="reviewList"></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ════════════════════════════════
+     FOOTER
+════════════════════════════════ -->
+<div class="footer-back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ Back to top</div>
+<div class="footer-main">
+  <div class="footer-logo-row" style="grid-column:1/-1;">
+    <div style="font-family:'Bebas Neue';font-size:1.8rem;letter-spacing:4px;color:white;">NS <span style="color:#FF9900;">SPORTS</span></div>
+    <div style="font-size:11px;color:rgba(255,255,255,.4);margin-top:4px;">Cricket Equipment & Sports Accessories</div>
+  </div>
+  <div class="footer-col">
+    <h4>Get to Know Us</h4>
+    <ul>
+      <li onclick="openInfoModal('about')">About NS Sports</li>
+      <li onclick="openInfoModal('story')">Our Story</li>
+      <li onclick="openInfoModal('careers')">Careers</li>
+      <li onclick="openInfoModal('press')">Press Releases</li>
+      <li onclick="openInfoModal('cares')">NS Sports Cares</li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Connect With Us</h4>
+    <ul>
+      <li onclick="contactWhatsApp()">💬 WhatsApp: +91 YOUR BUSINESS PHONE</li>
+      <li id="footer-insta" onclick="window.open('https://www.instagram.com/nandu_sports_12/','_blank')">📸 Instagram — @nandu_sports_12</li>
+      <li onclick="contactWhatsApp()">📞 Contact the store</li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Customer Service</h4>
+    <ul>
+      <li onclick="openInfoModal('account')">Your Account</li>
+      <li onclick="openInfoModal('orders')">Your Orders</li>
+      <li onclick="openInfoModal('returns')">Returns & Refunds</li>
+      <li onclick="openInfoModal('cancel')">Cancellation Policy</li>
+      <li onclick="openInfoModal('delivery')">Delivery Info</li>
+      <li onclick="openInfoModal('faq')">Help & FAQ</li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Shop</h4>
+    <ul>
+      <li onclick="filterCat('pro',null);scrollToSection('shopSection')">Pro Series Bats</li>
+      <li onclick="filterCat('club',null);scrollToSection('shopSection')">Club Series Bats</li>
+      <li onclick="filterCat('starter',null);scrollToSection('shopSection')">Starter Bats</li>
+      <li onclick="filterCat('junior',null);scrollToSection('shopSection')">Junior Bats</li>
+      <li onclick="filterCat('accessories',null);scrollToSection('shopSection')">Accessories</li>
+      <li onclick="openInfoModal('bulk')">Bulk/Team Orders</li>
+    </ul>
+  </div>
+</div>
+<div style="background:#0d1117;padding:22px;text-align:center;border-top:1px solid rgba(255,255,255,.08);">
+  <div style="font-size:13px;color:rgba(255,255,255,.5);margin-bottom:14px;letter-spacing:1px;text-transform:uppercase;">Follow & Subscribe</div>
+  <div style="display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;">
+    <a href="https://www.instagram.com/nandu_sports_12/" target="_blank"
+       style="display:flex;align-items:center;gap:9px;background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366);color:white;text-decoration:none;padding:10px 22px;border-radius:6px;font-size:13px;font-weight:700;transition:opacity .2s;"
+       onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='1'">
+      <span style="font-size:1.3rem;">📸</span>
+      <div style="text-align:left;line-height:1.2;">
+        <div style="font-size:10px;opacity:.8;">Follow us on</div>
+        <div>Instagram</div>
+        <div style="font-size:10px;opacity:.7;">@nandu_sports_12</div>
+      </div>
+    </a>
+
+    <a href="#" onclick="contactWhatsApp();return false;"
+       style="display:flex;align-items:center;gap:9px;background:#25D366;color:white;text-decoration:none;padding:10px 22px;border-radius:6px;font-size:13px;font-weight:700;transition:opacity .2s;"
+       onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='1'">
+      <span style="font-size:1.3rem;">💬</span>
+      <div style="text-align:left;line-height:1.2;">
+        <div style="font-size:10px;opacity:.8;">Chat on</div>
+        <div>WhatsApp</div>
+        <div style="font-size:10px;opacity:.7;">+91 YOUR BUSINESS PHONE</div>
+      </div>
+    </a>
+  </div>
+</div>
+<div class="footer-bottom">
+  © 2026 NS SPORTS. All rights reserved. &nbsp;·&nbsp;
+  Conditions of Use &nbsp;·&nbsp; Privacy Policy &nbsp;·&nbsp; Interest-Based Ads &nbsp;·&nbsp; GST details: add your registered GSTIN if applicable
+</div>
+
+<!-- UPI PAYMENT MODAL -->
+<div class="upi-overlay" id="upiModal">
+  <div class="upi-box">
+    <div class="upi-head">
+      <h3>💳 Pay via UPI</h3>
+      <button class="upi-close" onclick="closeUPI()">✕</button>
+    </div>
+    <div class="upi-body">
+      <div class="upi-amount-box">
+        <div class="ua-label">Amount to Pay</div>
+        <div class="ua-amount" id="upiAmountDisplay">₹0</div>
+        <div style="font-size:11px;color:#22c55e;margin-top:3px;">✅ Inclusive of all taxes & delivery</div>
+      </div>
+      <div class="upi-qr-wrap">
+        <div id="upiQrBox"></div>
+        <div class="upi-scan-label">📱 Scan with any UPI app to pay</div>
+      </div>
+      <div class="upi-id-row">
+        <div style="flex:1;">
+          <span class="uid-label">UPI ID</span>
+          <span class="uid-val" id="upiIdDisplay"></span>
+        </div>
+        <button class="upi-copy-btn" onclick="copyUPI()">📋 Copy</button>
+      </div>
+      <div class="upi-apps">
+        <div class="upi-app-btn" onclick="openUPIApp('gpay')"><div>G</div>GPay</div>
+        <div class="upi-app-btn" onclick="openUPIApp('phonepe')"><div>🟣</div>PhonePe</div>
+        <div class="upi-app-btn" onclick="openUPIApp('paytm')"><div>🔵</div>Paytm</div>
+        <div class="upi-app-btn" onclick="openUPIApp('bhim')"><div>🇮🇳</div>BHIM</div>
+      </div>
+      <button class="upi-done-btn" onclick="confirmUPIPayment()">📩 Send Order Request</button>
+      <div class="upi-note">This sends an order request only. The store must verify the payment before marking the order as paid.</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- INFO PAGES MODAL -->
+<div class="modal-overlay" id="infoModal" style="z-index:2500;align-items:flex-start;padding:20px;">
+  <div class="pd-box" style="max-width:640px;padding:0;overflow:hidden;max-height:90vh;display:flex;flex-direction:column;">
+    <div style="background:#131921;color:white;padding:16px 22px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;">
+      <div id="infoModalTitle" style="font-size:17px;font-weight:800;"></div>
+      <button onclick="closeInfoModal()" style="background:rgba(255,255,255,.15);border:none;color:white;width:32px;height:32px;border-radius:50%;font-size:1rem;cursor:pointer;">✕</button>
+    </div>
+    <div id="infoModalBody" style="overflow-y:auto;padding:24px;flex:1;font-size:14px;line-height:1.7;color:#0F1111;"></div>
+    <div style="padding:14px 22px;border-top:1px solid #e2e8f0;background:#f9fafb;flex-shrink:0;text-align:center;">
+      <button onclick="contactWhatsApp()" style="background:#25D366;color:white;border:none;padding:9px 24px;border-radius:20px;font-size:13px;font-weight:700;cursor:pointer;margin-right:8px;">💬 WhatsApp Us</button>
+      <button onclick="closeInfoModal()" style="background:#f0f2f2;border:1px solid #ddd;padding:9px 24px;border-radius:20px;font-size:13px;cursor:pointer;">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- SAVED FOR LATER PANEL -->
+<div class="modal-overlay" id="savedModal" style="z-index:2500;align-items:flex-start;padding:20px;">
+  <div class="pd-box" style="max-width:560px;padding:0;overflow:hidden;max-height:88vh;display:flex;flex-direction:column;">
+    <div style="background:#131921;color:white;padding:16px 22px;display:flex;align-items:center;justify-content:space-between;">
+      <div style="font-size:17px;font-weight:800;">💾 Saved for Later</div>
+      <button onclick="document.getElementById('savedModal').classList.remove('open')" style="background:rgba(255,255,255,.15);border:none;color:white;width:32px;height:32px;border-radius:50%;cursor:pointer;">✕</button>
+    </div>
+    <div id="savedItemsList" style="overflow-y:auto;padding:16px;flex:1;"></div>
+  </div>
+</div>
+
+
+<script>
+/* ═══════════════════════════════════════════════════════
+   PAYMENT CONFIG — EDIT THIS BLOCK TO CUSTOMIZE PAYMENTS
+   (Razorpay secret keys stay in .env on the server, never here)
+═══════════════════════════════════════════════════════ */
+const PAYMENT_CONFIG = {
+  whatsapp: '',                 // e.g. '919876543210' (country code + number, no + or spaces)
+  freeDeliveryAbove: 1499,
+  deliveryFee: 60,
+  methods: {
+    upi:      { enabled:true, label:'💳 Pay via UPI / QR', id:'gamingbablu356-1@oksbi', payee:'BABLU YADAV', qrImage:'assets/upi-qr.jpg' }, // id e.g. 'yourname@okbank'; qrImage = path/URL of YOUR QR, e.g. 'assets/upi-qr.png'
+    razorpay: { enabled:true, label:'Pay by Card / NetBanking (Razorpay)' },
+    cod:      { enabled:true, label:'💵 Cash on Delivery' },
+    whatsapp: { enabled:true, label:'💬 Order via WhatsApp' }
+  }
+};
+function getTotals(){
+  const sub=cart.reduce((s,i)=>s+i.price*i.qty,0);
+  const disc=promoOn?Math.round(sub*promoDiscount/100):0;
+  const del=(!sub||sub>=PAYMENT_CONFIG.freeDeliveryAbove)?0:PAYMENT_CONFIG.deliveryFee;
+  return {sub,disc,del,total:sub-disc+del};
+}
+/* ═══════════════════════════════════════════════════════
+   DATA
+═══════════════════════════════════════════════════════ */
+const PRODUCTS = [
+  {id:'p1',name:'NS Sports Thunder Strike Pro — Grade 1 English Willow Box Cricket Bat | Short Handle | Tournament Grade | With Toe Guard',
+   brand:'NS Sports',cat:'pro',price:3499,origPrice:4999,rating:4.9,reviews:128,stock:12,
+   badge:'#1 Best Seller',badgeType:'badge-best',bought:'200+ bought last month',
+   desc:'Grade 1 English Willow crafted specifically for box cricket tight boundaries. Maximum power with minimum effort. Pre-knocked and ready to play straight out of the box.',
+   features:['Grade 1 English Willow blade — top quality','Short handle design built for box cricket','Pre-knocked & match ready out of the box','Includes toe guard for protection','Tournament approved for Maharashtra box cricket leagues','Rubber anti-vibration grip for comfort'],
+   specs:[['Willow Grade','Grade 1 English'],['Handle','Short (Box Cricket)'],['Size','Full SH'],['Weight','1150–1200g'],['Sweet Spot','Mid–High'],['Recommended For','Club / Tournament']],
+   emoji:'🏏',photo:null},
+  {id:'p2',name:'NS Sports Street Warrior — Kashmir Willow Box Cricket Bat | Lightweight | For Beginners | Ready to Play',
+   brand:'NS Sports',cat:'starter',price:999,origPrice:null,rating:4.3,reviews:64,stock:28,
+   badge:'Value Pick',badgeType:'badge-deal',bought:'500+ bought last month',
+   desc:'Kashmir willow entry-level bat perfect for colony cricket, building games, and beginners. Lightweight design for quick swings.',
+   features:['Top-grade Kashmir Willow','Lightweight — ideal for quick strokes','Great for colony and building cricket','Grip tape included','Perfect beginner/practice bat'],
+   specs:[['Willow Grade','Kashmir Willow'],['Handle','Short'],['Size','Full SH'],['Weight','900–1000g'],['Sweet Spot','Mid'],['Recommended For','Beginner / Colony']],
+   emoji:'🪵',photo:null},
+  {id:'p3',name:'NS Sports Lightning Rod — Carbon Composite Handle | Elite English Willow | Ultra Light Box Cricket Bat | NEW 2025',
+   brand:'NS Sports',cat:'pro',price:5299,origPrice:null,rating:4.8,reviews:42,stock:5,
+   badge:'New Arrival',badgeType:'badge-new',bought:'50+ bought last month',
+   desc:'Ultra-light carbon composite handle with premium English Willow blade. Engineered for aggressive shots and lightning reflexes in box cricket arenas.',
+   features:['Carbon composite handle — ultra light','Premium English Willow — wide edge','Wide sweet spot for maximum power','Anti-vibration rubber insert','Exclusive 2025 design','Tournament approved — top leagues'],
+   specs:[['Willow Grade','English Willow'],['Handle','Carbon Composite'],['Size','Full SH'],['Weight','1050–1100g'],['Sweet Spot','High'],['Recommended For','Elite / Tournament']],
+   emoji:'⚡',photo:null},
+  {id:'p4',name:'NS Sports Blaze Master — Wide Edge Kashmir Willow | Club Cricket Bat | Reinforced Spine | Best for Tournaments',
+   brand:'NS Sports',cat:'club',price:2199,origPrice:2799,rating:4.4,reviews:87,stock:18,
+   badge:'21% Off',badgeType:'badge-deal',bought:'150+ bought last month',
+   desc:'Wide edge profile and reinforced spine for club tournament and league play. Exceptional durability with great performance.',
+   features:['Reinforced spine for long bat life','Wide edge — larger sweet spot','Premium Kashmir Willow','Full toe guard included','Club tournament approved'],
+   specs:[['Willow Grade','Kashmir Willow'],['Handle','Short'],['Size','Full SH'],['Weight','1100–1150g'],['Sweet Spot','Mid–High'],['Recommended For','Club / League']],
+   emoji:'🔥',photo:null},
+  {id:'p5',name:'NS Sports Young Gun — Junior Box Cricket Bat | Size 4/5/6 | For Ages 8-16 | Lightweight | School Cricket',
+   brand:'NS Sports',cat:'junior',price:799,origPrice:null,rating:4.7,reviews:31,stock:22,
+   badge:'Junior Pick',badgeType:'badge-limited',bought:'100+ bought last month',
+   desc:'Specially designed lightweight bat for junior players aged 8–16. Perfect for school, academy, and junior box cricket.',
+   features:['Available in Size 4, 5, and 6','Ultra-lightweight — easy for young players','Suitable for ages 8–16','School and academy approved','Comfortable soft grip handle'],
+   specs:[['Willow Grade','Kashmir Willow'],['Handle','Short'],['Size','4/5/6'],['Weight','700–900g'],['Sweet Spot','Mid'],['Recommended For','Junior / School']],
+   emoji:'🎯',photo:null},
+];
+
+const ACCESSORIES = [
+  {id:'a1',name:'NS Batting Gloves',brand:'NS Sports',price:499,origPrice:null,emoji:'🧤',cat:'accessories',rating:4.2,reviews:0,stock:15,badge:'',badgeType:'',bought:'',desc:'Premium batting gloves for box cricket.',features:['Comfortable fit','Good grip','Durable material'],specs:[]},
+  {id:'a2',name:'NS Batting Pads',brand:'NS Sports',price:699,origPrice:null,emoji:'🦵',cat:'accessories',rating:4.1,reviews:0,stock:12,badge:'',badgeType:'',bought:'',desc:'Lightweight batting pads for protection.',features:['Lightweight design','Good protection','Easy to wear'],specs:[]},
+  {id:'a3',name:'NS Cricket Helmet',brand:'NS Sports',price:899,origPrice:null,emoji:'⛑️',cat:'accessories',rating:4.3,reviews:0,stock:10,badge:'',badgeType:'',bought:'',desc:'Safety cricket helmet with strong grill.',features:['Strong outer shell','Metal grill','Comfortable padding'],specs:[]},
+  {id:'a4',name:'NS Bat Grip Tape',brand:'NS Sports',price:199,origPrice:null,emoji:'🎿',cat:'accessories',rating:4.0,reviews:0,stock:50,badge:'',badgeType:'',bought:'',desc:'Anti-slip bat grip tape.',features:['Anti-slip','Easy to apply','Long lasting'],specs:[]},
+  {id:'a5',name:'NS Cricket Bag',brand:'NS Sports',price:1299,origPrice:null,emoji:'🎒',cat:'accessories',rating:4.4,reviews:0,stock:8,badge:'',badgeType:'',bought:'',desc:'Spacious cricket kit bag.',features:['Large capacity','Padded straps','Multiple pockets'],specs:[]},
+  {id:'a6',name:'NS Ball Pack (6)',brand:'NS Sports',price:349,origPrice:null,emoji:'🏏',cat:'accessories',rating:4.2,reviews:0,stock:30,badge:'',badgeType:'',bought:'',desc:'Pack of 6 tennis balls for box cricket.',features:['Pack of 6','Good bounce','Durable'],specs:[]},
+];
+let ALL_PRODUCTS = [...PRODUCTS, ...ACCESSORIES];
+
+const REVIEWS = [
+  {name:'Rohan M.',stars:5,title:'Perfect for our colony box cricket tournament!',body:'Bought 3 Thunder Strike Pro bats for our colony tournament in Andheri. All 3 are amazing — the sweet spot is huge and the willow quality is the best I\'ve seen at this price. Delivery was super fast too. Highly recommended!',date:'15 February 2025',helpful:34},
+  {name:'Priya S.',stars:5,title:'Young Gun is perfect for my son',body:'My 12-year-old son loves the Young Gun bat. It\'s lightweight, balanced, and looks really professional. He scored a half-century with it in his school tournament last week! Will definitely order more NS Sports products.',date:'3 March 2025',helpful:21},
+  {name:'Aditya J.',stars:4,title:'Lightning Rod is a beast bat',body:'The carbon handle makes a massive difference — zero vibration even on mishits. Blade quality is top class. Only reason for 4 stars is I wish it came in a cover/bag. Otherwise flawless!',date:'20 February 2025',helpful:18},
+  {name:'Kavya N.',stars:5,title:'Best cricket store in Mumbai!',body:'Ordered the Blaze Master for our team. The wide edges are perfect for our small box cricket ground. NS Sports has amazing service — they called to confirm my order and delivered next day. 10/10!',date:'8 March 2025',helpful:42},
+];
+
+let cart = [];
+let wishlist = [];
+let savedForLater = [];
+let promoOn = false;
+let promoCode = 'NSSPORTS10';
+let promoDiscount = 10;
+let currentCat = 'all';
+let currentView = 'grid';
+let currentSlide = 0;
+let waNumber = PAYMENT_CONFIG.whatsapp; // set in PAYMENT_CONFIG above or Admin > Contact
+let activeAdminTab = 1;
+let newProductPhoto = null;
+function previewProductImage(e){
+  const f=e.target.files[0], pv=document.getElementById('product_image_preview');
+  if(!f){newProductPhoto=null;pv.style.display='none';return;}
+  const r=new FileReader();
+  r.onload=ev=>{newProductPhoto=ev.target.result;pv.src=newProductPhoto;pv.style.display='block';};
+  r.readAsDataURL(f);
+}
+
+// Load photos from localStorage
+ALL_PRODUCTS.forEach(p => {
+  const s = localStorage.getItem('nsp_' + p.id);
+  if (s) p.photo = s;
+});
+
+/* ═══════════════════════════════════════════════════════
+   UTILITIES
+═══════════════════════════════════════════════════════ */
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.innerHTML = msg; t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2800);
+}
+function scrollToSection(id) {
+  document.getElementById(id)?.scrollIntoView({behavior:'smooth'});
+}
+function starsHtml(r, size='12px') {
+  const full = Math.floor(r), half = r % 1 >= 0.5;
+  return `<span style="color:#FFA41C;font-size:${size};">${'★'.repeat(full)}${half?'½':''}${'☆'.repeat(5-full-(half?1:0))}</span>`;
+}
+
+/* ═══════════════════════════════════════════════════════
+   HERO CAROUSEL
+═══════════════════════════════════════════════════════ */
+function goSlide(n) {
+  const totalSlides = document.querySelectorAll('.hero-slide').length;
+  currentSlide = ((n % totalSlides) + totalSlides) % totalSlides;
+  document.getElementById('heroSlides').style.transform = `translateX(-${currentSlide*100}%)`;
+  document.querySelectorAll('.hero-dot').forEach((d,i) => d.classList.toggle('active', i===currentSlide));
+}
+function slideHero(d) {
+  const totalSlides = document.querySelectorAll('.hero-slide').length;
+  goSlide((currentSlide + d + totalSlides) % totalSlides);
+}
+setInterval(() => slideHero(1), 5000);
+
+/* ═══════════════════════════════════════════════════════
+   PHOTO UPLOAD
+═══════════════════════════════════════════════════════ */
+function handleUpload(event, productId) {
+  const file = event.target.files[0]; if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    const d = e.target.result;
+    const p = ALL_PRODUCTS.find(x => x.id === productId);
+    if (p) {
+      p.photo = d;
+      localStorage.setItem('nsp_' + productId, d);
+      renderProducts();
+      showToast('📸 Photo uploaded for ' + p.name.split('—')[0].trim() + '!');
+    }
+  };
+  reader.readAsDataURL(file);
+}
+function handleUploadDetail(event, productId) {
+  const file = event.target.files[0]; if (!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    const d = e.target.result;
+    const p = ALL_PRODUCTS.find(x => x.id === productId);
+    if (p) {
+      p.photo = d;
+      localStorage.setItem('nsp_' + productId, d);
+      renderProducts();
+      openPD(productId);
+      showToast('📸 Photo updated!');
+    }
+  };
+  reader.readAsDataURL(file);
+}
+
+/* ═══════════════════════════════════════════════════════
+   RENDER PRODUCTS
+═══════════════════════════════════════════════════════ */
+function getFiltered() {
+  const search = document.getElementById('searchInput').value.toLowerCase();
+  const sort = document.getElementById('sortSelect').value;
+  const minPInp = +document.getElementById('minPrice').value || 0;
+  const maxPInp = +document.getElementById('maxPrice').value || 999999;
+
+  // Price range checkboxes
+  const pu500 = document.getElementById('p-u500')?.checked;
+  const p5001k = document.getElementById('p-5001k')?.checked;
+  const p1k3k = document.getElementById('p-1k3k')?.checked;
+  const p3kplus = document.getElementById('p-3kplus')?.checked;
+  const anyPriceBox = pu500 || p5001k || p1k3k || p3kplus;
+
+  // Availability: "Include Out of Stock" — when UNCHECKED, hide out-of-stock items
+  const includeOutOfStock = document.getElementById('f-instock')?.checked ?? true;
+  const freeOnly = document.getElementById('f-free')?.checked;
+  const disc10 = document.getElementById('f-disc10')?.checked;
+  const disc25 = document.getElementById('f-disc25')?.checked;
+
+  let prods = ALL_PRODUCTS.filter(p => {
+    if (currentCat !== 'all' && p.cat !== currentCat) return false;
+
+    // Out-of-stock filter
+    if (!includeOutOfStock && (p.stock <= 0)) return false;
+
+    // Price range filter (manual inputs)
+    if (p.price < minPInp || p.price > maxPInp) return false;
+
+    // Price checkbox filter (only apply if any box is checked)
+    if (anyPriceBox) {
+      const inRange = (pu500 && p.price < 500) ||
+                      (p5001k && p.price >= 500 && p.price <= 1000) ||
+                      (p1k3k && p.price > 1000 && p.price <= 3000) ||
+                      (p3kplus && p.price > 3000);
+      if (!inRange) return false;
+    }
+
+    // Free delivery filter
+    if (freeOnly && p.price < 1499) return false;
+
+    // Discount filter
+    if (disc10 && (!p.origPrice || ((p.origPrice - p.price) / p.origPrice) < 0.10)) return false;
+    if (disc25 && (!p.origPrice || ((p.origPrice - p.price) / p.origPrice) < 0.25)) return false;
+
+    // Search
+    if (search && !p.name.toLowerCase().includes(search) && !(p.desc||'').toLowerCase().includes(search)) return false;
+    return true;
+  });
+
+  if (sort === 'low') prods.sort((a,b) => a.price - b.price);
+  else if (sort === 'high') prods.sort((a,b) => b.price - a.price);
+  else if (sort === 'rating') prods.sort((a,b) => (b.rating||0) - (a.rating||0));
+  return prods;
+}
+
+/* Built-in product artwork: replace with real product photos from the admin upload when available. */
+function productIllustration(p) {
+  const isBat = (p.cat !== 'accessories') && /bat|willow|junior|strike|warrior|master|lightning/i.test(p.name || '');
+  const label = (p.name || 'NS SPORTS').split(/[—|]/)[0].trim().slice(0, 30).replace(/[&<>"']/g, '');
+  const icon = p.emoji || (isBat ? '🏏' : '🎽');
+  const art = isBat
+    ? `<g transform="translate(0 0) rotate(28 180 155)"><rect x="166" y="34" width="28" height="88" rx="9" fill="#8a4b25"/><rect x="160" y="108" width="40" height="20" rx="5" fill="#252525"/><path d="M160 125 Q142 143 140 165 L135 246 Q135 270 180 284 Q225 270 225 246 L220 165 Q218 143 200 125Z" fill="#d7ad70" stroke="#74421e" stroke-width="5"/><path d="M163 145 L197 145 M155 165 L205 165 M151 190 L209 190 M148 215 L212 215" stroke="#b4864c" stroke-width="3"/><path d="M166 36 L194 36" stroke="#e5e7eb" stroke-width="4"/></g>`
+    : `<circle cx="180" cy="150" r="78" fill="#fff" stroke="#e4e7eb" stroke-width="3"/><text x="180" y="178" font-size="88" text-anchor="middle">${icon}</text>`;
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="360" height="320" viewBox="0 0 360 320"><defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f8fafc"/><stop offset="1" stop-color="#e6edf3"/></linearGradient></defs><rect width="360" height="320" rx="18" fill="url(#bg)"/><circle cx="300" cy="44" r="36" fill="#ff9900" opacity=".16"/><circle cx="52" cy="260" r="44" fill="#007185" opacity=".08"/>${art}<text x="180" y="294" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#232f3e" text-anchor="middle">NS SPORTS</text><text x="180" y="311" font-family="Arial,sans-serif" font-size="10" fill="#64748b" text-anchor="middle">${label}</text></svg>`;
+  return 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg);
+}
+
+function renderProducts() {
+  const prods = getFiltered();
+  const grid = document.getElementById('prodGrid');
+  const info = document.getElementById('resultsInfo');
+  const cat = currentCat === 'all' ? 'Box Cricket Bats' : currentCat.charAt(0).toUpperCase()+currentCat.slice(1)+' Bats';
+  info.innerHTML = `1–${prods.length} of <strong>${prods.length} results</strong> for <em>"${cat}"</em>`;
+  if (!prods.length) {
+    grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:60px;color:#888;"><div style="font-size:3rem;margin-bottom:12px;">🔍</div><p style="font-size:16px;font-weight:600;">No results found</p><p style="font-size:13px;color:#aaa;margin-top:6px;">Try a different search or clear filters</p></div>';
+    return;
+  }
+  grid.innerHTML = prods.map(p => {
+    const disc = p.origPrice ? Math.round((1-p.price/p.origPrice)*100) : 0;
+    const imgHtml = p.photo
+      ? `<img class="pimg" src="${p.photo}" alt="${p.name}">`
+      : `<img class="pimg product-illustration" src="${productIllustration(p)}" alt="Illustration of ${p.name.replace(/&/g,'&amp;').replace(/"/g,'')}">`;
+    const isLV = currentView === 'list';
+
+    const imgSection = `
+      <div class="card-img-area" onclick="openPD('${p.id}')">
+        ${imgHtml}
+        <div class="card-badge-wrap"><span class="amz-badge ${p.badgeType||'badge-best'}">${p.badge||''}</span>${p.stock<=5?'<span class="amz-badge badge-limited">Low Stock</span>':''}</div>
+        <button class="wish-heart-btn ${wishlist.includes(p.id)?'active':''}" onclick="event.stopPropagation();toggleWish('${p.id}',this)">♥</button>
+        <div class="quick-view-overlay"><button class="qv-btn" onclick="event.stopPropagation();openPD('${p.id}')">Quick View</button></div>
+        <label class="upload-hover-btn">📸 Upload Photo<input type="file" accept="image/*" onchange="handleUpload(event,'${p.id}')"></label>
+      </div>`;
+
+    const mainBody = `
+      <div class="card-body" style="cursor:pointer">
+        <div class="card-brand">${p.brand}</div>
+        <div class="card-name" onclick="openPD('${p.id}')">${p.name.length>80?p.name.slice(0,80)+'…':p.name}</div>
+        <div class="card-stars">${starsHtml(p.rating||4.5)} <span class="cs-count">${p.reviews||0}</span></div>
+        ${p.bought?`<div class="bought-badge">${p.bought}</div>`:''}
+        <div class="price-block">
+          <span class="price-main-amz"><span class="price-sup">₹</span>${(p.price||0).toLocaleString('en-IN')}</span>
+          ${p.origPrice?`<span class="price-og-amz">₹${p.origPrice.toLocaleString('en-IN')}</span><span class="price-save-badge">-${disc}%</span>`:''}
+        </div>
+        <div class="prime-tag"><span class="prime-logo">PRIME</span> FREE delivery</div>
+        <div class="delivery-tag">✅ ${p.price>=1499?'FREE Delivery — Mumbai':'Delivery ₹60'}</div>
+        ${p.stock<=5?`<div class="stock-tag low-stock">Only ${p.stock} left in stock</div>`:'<div class="stock-tag in-stock">In Stock</div>'}
+        ${isLV?`<div class="card-desc">${p.desc||''}</div>`:''}
+      </div>`;
+
+    if (isLV) {
+      return `<div class="prod-card" data-id="${p.id}">
+        ${imgSection}${mainBody}
+        <div class="list-right-col">
+          <div class="price-block"><span class="price-main-amz"><span class="price-sup">₹</span>${p.price.toLocaleString('en-IN')}</span></div>
+          <div class="prime-tag"><span class="prime-logo">PRIME</span> FREE delivery</div>
+          <button class="atc-btn-amz" onclick="addToCart('${p.id}',this)">🛒 Add to Cart</button>
+          <button class="buy-now-btn" onclick="openPD('${p.id}')">Buy Now</button>
+        </div>
+      </div>`;
+    }
+    return `<div class="prod-card" data-id="${p.id}">
+      ${imgSection}${mainBody}
+      <div style="padding:0 10px 12px;">
+        <button class="atc-btn-amz" onclick="addToCart('${p.id}',this)">🛒 Add to Cart</button>
+        <button class="buy-now-btn" style="margin-top:5px;" onclick="openPD('${p.id}')">Buy Now</button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function setView(v) {
+  currentView = v;
+  const g = document.getElementById('prodGrid');
+  g.classList.toggle('list-view', v==='list');
+  document.getElementById('gridViewBtn').classList.toggle('active', v==='grid');
+  document.getElementById('listViewBtn').classList.toggle('active', v==='list');
+  renderProducts();
+}
+function filterCat(cat, el) {
+  currentCat = cat;
+  document.querySelectorAll('.cat-bar-item').forEach(c=>c.classList.remove('active'));
+  if(el) el.classList.add('active');
+  renderProducts();
+  scrollToSection('shopSection');
+}
+function filterCheckbox() { renderProducts(); }
+function clearFilters() {
+  document.getElementById('minPrice').value='';
+  document.getElementById('maxPrice').value='';
+  document.querySelectorAll('.left-sidebar input[type=checkbox]').forEach(c=>c.checked=false);
+  renderProducts();
+}
+function liveSearch() { renderProducts(); }
+
+/* ═══════════════════════════════════════════════════════
+   DEALS GRID
+═══════════════════════════════════════════════════════ */
+function renderDeals() {
+  const deals = PRODUCTS.filter(p=>p.origPrice||p.stock<=5).slice(0,4);
+  document.getElementById('dealsGrid').innerHTML = deals.map(p=>{
+    const disc=p.origPrice?Math.round((1-p.price/p.origPrice)*100):15;
+    const fill=Math.min(80,Math.max(20,(100-p.stock*4)));
+    return `<div class="deal-card" onclick="openPD('${p.id}')">
+      <div class="deal-img">${p.photo?`<img src="${p.photo}" style="width:100%;height:100%;object-fit:contain;padding:8px;" alt="">`:p.emoji}</div>
+      <div class="deal-body">
+        <div class="deal-disc">Up to ${disc}% off</div>
+        <div class="deal-name">${p.name.split('—')[0].trim()}</div>
+        <div class="deal-price">₹${p.price.toLocaleString('en-IN')} <span class="deal-og">${p.origPrice?'₹'+p.origPrice.toLocaleString('en-IN'):''}</span></div>
+        <div class="deal-bar-wrap">
+          <div class="deal-bar-label">🔥 ${fill}% claimed</div>
+          <div class="deal-bar"><div class="deal-bar-fill" style="width:${fill}%"></div></div>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+/* ═══════════════════════════════════════════════════════
+   ALSO BOUGHT CAROUSEL
+═══════════════════════════════════════════════════════ */
+function renderAlsoBought() {
+  const items=[...PRODUCTS,...ACCESSORIES];
+  document.getElementById('alsobought').innerHTML=items.map(p=>`
+    <div class="carousel-card" onclick="openPD('${p.id}')">
+      <div class="cc-img">${p.photo?`<img src="${p.photo}" style="width:100%;height:100%;object-fit:contain;padding:6px;" alt="">`:p.emoji}</div>
+      <div class="cc-body">
+        <div class="cc-name">${p.name.split('—')[0].trim().slice(0,40)}</div>
+        <div class="cc-stars">${'★'.repeat(Math.floor(p.rating||4))}</div>
+        <div class="cc-price">₹${p.price.toLocaleString('en-IN')}</div>
+      </div>
+    </div>`).join('');
+}
+
+/* ═══════════════════════════════════════════════════════
+   REVIEWS
+═══════════════════════════════════════════════════════ */
+function renderReviews() {
+  document.getElementById('reviewList').innerHTML = REVIEWS.map(r=>`
+    <div class="review-item">
+      <div class="reviewer-name">${r.name}</div>
+      <div class="review-stars">${'★'.repeat(r.stars)}${'☆'.repeat(5-r.stars)}</div>
+      <div class="review-title">${r.title}</div>
+      <div class="review-body">${r.body}</div>
+      <div class="review-date">Reviewed in India on ${r.date}</div>
+      <div class="helpful-row">
+        <span>${r.helpful} people found this helpful</span>
+        <button class="helpful-btn" onclick="showToast('👍 Marked as helpful!')">Helpful</button>
+        <button class="helpful-btn" onclick="showToast('🚩 Report submitted')">Report</button>
+      </div>
+    </div>`).join('');
+}
+
+/* ═══════════════════════════════════════════════════════
+   PRODUCT DETAIL MODAL
+═══════════════════════════════════════════════════════ */
+let detailQty = 1;
+function openPD(id) {
+  const p = ALL_PRODUCTS.find(x=>x.id===id); if(!p) return;
+  detailQty=1;
+  const disc=p.origPrice?Math.round((1-p.price/p.origPrice)*100):0;
+  const imgHtml=p.photo?`<img src="${p.photo}" alt="${p.name}" style="width:100%;height:100%;object-fit:contain;padding:12px;">`:`<div class="no-img-big">${p.emoji}</div>`;
+  const specsHtml = p.specs?`<div class="pd-specs"><div class="pd-specs-title">Technical Details</div><table class="specs-table">${p.specs.map(s=>`<tr><td>${s[0]}</td><td>${s[1]}</td></tr>`).join('')}</table></div>`:'';
+
+  document.getElementById('pdContent').innerHTML=`
+    <button class="pd-close-btn" onclick="closePD()">✕</button>
+    <div class="pd-grid" style="grid-template-columns:${p.cat==='accessories'?'1fr 1fr 220px':'1fr 1fr 240px'}">
+      <div class="pd-images-col">
+        <div class="pd-main-img" id="pdMainImg">${imgHtml}</div>
+        <div class="pd-thumbs">
+          <div class="pd-thumb active" id="pt0">${p.photo?`<img src="${p.photo}" alt="thumb">`:('<span>'+p.emoji+'</span>')}</div>
+          <div class="pd-thumb" id="pt1"><span>📐</span></div>
+          <div class="pd-thumb" id="pt2"><span>🔍</span></div>
+          <div class="pd-thumb" id="pt3"><span>📦</span></div>
+        </div>
+        <div class="pd-upload-area">
+          <input type="file" accept="image/*" onchange="handleUploadDetail(event,'${id}')">
+          <div class="utext">📸 Upload Real Bat Photo</div>
+          <div class="usub">Click to upload your actual product image</div>
+        </div>
+      </div>
+      <div class="pd-info-col">
+        <div class="pd-breadcrumb">NS Sports &nbsp;›&nbsp; ${p.cat.charAt(0).toUpperCase()+p.cat.slice(1)} &nbsp;›&nbsp; <span>${p.name.split('—')[0].trim()}</span></div>
+        <div class="pd-title">${p.name}</div>
+        <div class="pd-brand-link">Brand: <strong>NS Sports</strong></div>
+        <div class="pd-stars-row">${starsHtml(p.rating||4.5,'16px')} <span class="pd-stars-row rc" style="font-size:13px;color:#007185;cursor:pointer;">${p.reviews||0} ratings</span></div>
+        <div style="font-size:11px;color:#888;margin-bottom:8px;">200+ bought in the past month</div>
+        <hr class="pd-divider">
+        <div class="pd-price-section">
+          <div class="pd-price-big"><span class="sup">₹</span>${p.price.toLocaleString('en-IN')}</div>
+          ${p.origPrice?`<div class="pd-price-sub">M.R.P: <span style="text-decoration:line-through">₹${p.origPrice.toLocaleString('en-IN')}</span></div><div class="pd-saving">You Save: ₹${(p.origPrice-p.price).toLocaleString('en-IN')} (${disc}%)</div>`:''}
+        </div>
+        <div class="pd-prime-row"><span class="prime-logo" style="font-family:Bebas Neue;background:#232F3E;color:#FF9900;font-size:10px;padding:2px 6px;border-radius:2px;">PRIME</span> Get it by <strong>Tomorrow</strong> with NS Sports Express</div>
+        <div class="pd-delivery-info">Deliver to <span class="loc">📍 Mumbai 400017</span></div>
+        <hr class="pd-divider">
+        <div class="pd-features-title">About this item</div>
+        <ul class="pd-features">${(p.features||[]).map(f=>`<li>${f}</li>`).join('')}</ul>
+        ${specsHtml}
+      </div>
+      <div class="pd-buy-col">
+        <div class="buy-box">
+          <div class="buy-price"><span class="buy-sup">₹</span>${p.price.toLocaleString('en-IN')}</div>
+          ${p.origPrice?`<div style="font-size:12px;color:#888;">M.R.P: <span style="text-decoration:line-through;">₹${p.origPrice.toLocaleString('en-IN')}</span></div>`:''}
+          <div class="buy-prime" style="margin-top:8px;display:flex;align-items:center;gap:5px;font-size:12px;color:#007185;"><span style="font-family:Bebas Neue;background:#232F3E;color:#FF9900;font-size:9px;padding:1px 5px;border-radius:2px;">PRIME</span> FREE Delivery</div>
+          <div class="buy-delivery" style="font-size:12px;margin:8px 0;"><b>Fastest delivery:</b> Tomorrow</div>
+          <div class="buy-sold-by" style="font-size:12px;margin-bottom:10px;">Sold by <span>NS Sports Official</span></div>
+          <div class="stock-green" style="font-size:14px;font-weight:700;color:#007600;margin-bottom:10px;">${p.stock<=5?`Only ${p.stock} left — order soon!`:'In Stock'}</div>
+          <div class="qty-select-wrap">
+            <label style="font-size:13px;font-weight:600;">Qty:</label>
+            <div style="display:flex;align-items:center;border:1px solid #ddd;border-radius:3px;overflow:hidden;">
+              <button style="background:#f7f8f8;border:none;width:30px;height:30px;font-size:1.1rem;cursor:pointer;" onclick="changeDetailQty(-1,'pdQtyNum')">−</button>
+              <span id="pdQtyNum" style="padding:0 12px;font-weight:700;font-size:13px;">1</span>
+              <button style="background:#f7f8f8;border:none;width:30px;height:30px;font-size:1.1rem;cursor:pointer;" onclick="changeDetailQty(1,'pdQtyNum')">+</button>
+            </div>
+          </div>
+          <button class="pd-atc-btn" onclick="addToCartPD('${id}')">Add to Cart</button>
+          <button class="pd-buy-btn" onclick="addToCartPD('${id}')">Buy Now</button>
+          <button class="pd-wa-btn" onclick="buyWA('${id}')">💬 Order via WhatsApp</button>
+          <div class="pd-secure">🔒 Secure transaction · 256-bit encrypted</div>
+          <div class="return-policy">↩️ Free & easy returns within 7 days. <br>1-Year manufacturer warranty included.</div>
+        </div>
+      </div>
+    </div>`;
+  document.getElementById('pdModal').classList.add('open');
+}
+function closePD(){document.getElementById('pdModal').classList.remove('open');}
+function changeDetailQty(d,elId){detailQty=Math.max(1,detailQty+d);const el=document.getElementById(elId);if(el)el.textContent=detailQty;}
+function addToCartPD(id){
+  const p=ALL_PRODUCTS.find(x=>x.id===id);if(!p)return;
+  for(let i=0;i<detailQty;i++){const ex=cart.find(c=>c.id===id);if(ex)ex.qty++;else cart.push({id,name:p.name.split('—')[0].trim(),price:p.price,emoji:p.emoji,photo:p.photo,qty:1});}
+  renderCart();showToast(`🛒 ${p.name.split('—')[0].trim()} ×${detailQty} added!`);openCart();
+}
+
+/* ═══════════════════════════════════════════════════════
+   CART
+═══════════════════════════════════════════════════════ */
+function addToCart(id,btn){
+  const p=ALL_PRODUCTS.find(x=>x.id===id);if(!p)return;
+  const ex=cart.find(c=>c.id===id);
+  if(ex)ex.qty++;else cart.push({id,name:p.name.split('—')[0].trim(),price:p.price,emoji:p.emoji,photo:p.photo,qty:1});
+  if(btn){const ot=btn.innerHTML;btn.innerHTML='✓ Added!';btn.style.background='#c4e59a';setTimeout(()=>{btn.innerHTML=ot;btn.style.background='';},1600);}
+  renderCart();showToast(`🛒 Added to cart!`);openCart();
+}
+function changeQty(id,d){const ex=cart.find(c=>c.id===id);if(!ex)return;ex.qty+=d;if(ex.qty<=0)cart=cart.filter(c=>c.id!==id);renderCart();}
+function removeItem(id){cart=cart.filter(c=>c.id!==id);renderCart();showToast('Removed from cart');}
+function applyPromo(){
+  const c=document.getElementById('promoInput').value.trim().toUpperCase();
+  if(c===promoCode){promoOn=true;renderCart();showToast('🎉 '+promoDiscount+'% discount applied!');}
+  else showToast('❌ Invalid promo code. Try NSSPORTS10');
+}
+function renderCart(){
+  renderPayButtons();
+  const count=cart.reduce((s,i)=>s+i.qty,0);
+  document.getElementById('cartBadge').textContent=count;
+  const sub=cart.reduce((s,i)=>s+i.price*i.qty,0);
+  const disc=promoOn?Math.round(sub*(promoDiscount/100)):0;
+  const tot=getTotals().total;
+  const dl=document.getElementById('discLine');
+  if(disc>0){dl.style.display='block';dl.textContent='✅ NSSPORTS10 applied — ₹'+disc+' OFF!';}else dl.style.display='none';
+  document.getElementById('subtotalBox').innerHTML=`Subtotal (${count} item${count!==1?'s':''}): <span>₹${tot.toLocaleString('en-IN')}</span>`;
+  const b=document.getElementById('cpBody');
+  if(!cart.length){b.innerHTML='<div class="cp-empty"><div class="emp-icon">🛒</div><p>Your cart is empty</p></div>';return;}
+  b.innerHTML=cart.map(item=>`
+    <div class="cart-item">
+      <div class="ci-img">${item.photo?`<img src="${item.photo}" alt="${item.name}">`:`<span>${item.emoji}</span>`}</div>
+      <div class="ci-info">
+        <div class="ci-name">${item.name}</div>
+        <div class="ci-price">₹${(item.price*item.qty).toLocaleString('en-IN')}</div>
+        <div class="ci-in-stock">✅ In Stock</div>
+        <div class="ci-actions">
+          <div class="ci-qty-wrap">
+            <button class="ci-qty-btn" onclick="changeQty('${item.id}',-1)">−</button>
+            <span class="ci-qty-num">${item.qty}</span>
+            <button class="ci-qty-btn" onclick="changeQty('${item.id}',1)">+</button>
+          </div>
+          <button class="ci-del-btn" onclick="removeItem('${item.id}')">Delete</button>
+          <button class="ci-save-btn" onclick="saveForLater('${item.id}')">Save for later</button>
+        </div>
+      </div>
+    </div>`).join('');
+}
+function openCart(){document.getElementById('cartPanel').classList.add('open');document.getElementById('cartOverlay').classList.add('open');}
+function closeCart(){document.getElementById('cartPanel').classList.remove('open');document.getElementById('cartOverlay').classList.remove('open');}
+async function proceedCheckout(){
+  if (!cart.length) { showToast('Your cart is empty!'); return; }
+  const customer_name = (prompt('Enter your full name:') || '').trim();
+  if (!customer_name) return;
+  const customer_phone = (prompt('Enter your 10-digit phone number:') || '').trim();
+  if (!/^\d{10}$/.test(customer_phone)) { showToast('Enter a valid 10-digit phone number.'); return; }
+  const customer_address = (prompt('Enter delivery address with area and PIN code:') || '').trim();
+  if (customer_address.length < 8) { showToast('Please enter a complete delivery address.'); return; }
+  const items = cart.map(i => ({ product_id: i.id, quantity: i.qty }));
+  const subtotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+  const discount_amount = promoOn ? Math.round(subtotal * promoDiscount / 100) : 0;
+  try {
+    const response = await fetch(`${API}/payments/razorpay/order`, {
+      method: 'POST', headers: {'Content-Type':'application/json'},
+      body: JSON.stringify({ customer_name, customer_phone, customer_address, items, promo_code: promoOn ? promoCode : null })
+    });
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.error || 'Unable to start secure checkout.');
+    const script = document.createElement('script');
+    script.src = 'https://checkout.razorpay.com/v1/checkout.js';
+    script.onload = () => {
+      const checkout = new Razorpay({
+        key: data.key_id, order_id: data.razorpay_order_id, amount: data.amount,
+        currency: data.currency || 'INR', name: 'NS SPORTS', description: 'Cricket equipment order',
+        prefill: {name: customer_name, contact: customer_phone}, theme: {color:'#FF9900'},
+        handler: async function(payment) {
+          try {
+            const verified = await fetch(`${API}/payments/razorpay/verify`, {
+              method:'POST', headers:{'Content-Type':'application/json'},
+              body: JSON.stringify({...payment, customer_name, customer_phone, customer_address, items, promo_code: promoOn ? promoCode : null})
+            });
+            const result = await verified.json();
+            if (!verified.ok) throw new Error(result.error || 'Payment verification failed.');
+            showToast(`Payment verified. Order #${result.order_id} confirmed.`);
+            cart=[]; promoOn=false; renderCart(); setTimeout(closeCart,1500);
+          } catch (error) { showToast(error.message || 'Payment needs verification. Contact the store.'); }
+        },
+        modal: { ondismiss: () => showToast('Checkout closed. Your cart is still saved.') }
+      });
+      checkout.open();
+    };
+    script.onerror = () => showToast('Could not load secure checkout. Please try again.');
+    document.head.appendChild(script);
+  } catch (error) {
+    showToast(error.message || 'Secure online payment is not configured yet.');
+  }
+}
+async function orderViaWA(){
+  if(!cart.length){showToast('Add items first!');return;}
+  if (!waNumber || !/^\d{10,15}$/.test(waNumber)) { showToast('Add your WhatsApp number in Admin > Contact Settings first.'); return; }
+  const customer_name = (prompt('Enter your full name:') || '').trim();
+  if (!customer_name) return;
+  const customer_phone = (prompt('Enter your 10-digit phone number:') || '').trim();
+  if (!/^\d{10}$/.test(customer_phone)) { showToast('Enter a valid 10-digit phone number.'); return; }
+  const customer_address = (prompt('Enter delivery address with area and PIN code:') || '').trim();
+  if (customer_address.length < 8) { showToast('Please enter a complete delivery address.'); return; }
+  const orderData = {
+    customer_name, customer_phone, customer_address,
+    items: cart.map(i => ({product_id:i.id, quantity:i.qty})),
+    promo_code: promoOn ? promoCode : null
+  };
+  let savedOrder = null;
+  try {
+    const response = await fetch(`${API}/orders`, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(orderData)});
+    const result = await response.json();
+    if (!response.ok) throw new Error(result.error || 'Order could not be saved.');
+    savedOrder = result.order_id;
+  } catch (error) {
+    showToast('Could not save order to the database. Opening WhatsApp request anyway.');
+  }
+  const subtotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+  const discount = promoOn ? Math.round(subtotal * promoDiscount / 100) : 0;
+  const total = subtotal - discount + getTotals().del;
+  const message = `Hi NS SPORTS, I would like to request an order${savedOrder ? ' #' + savedOrder : ''}. Customer: ${customer_name}; Phone: ${customer_phone}; Address: ${customer_address}. Items: ${cart.map(i => `${i.name} x${i.qty}`).join(', ')}. Estimated total ₹${total.toLocaleString('en-IN')}. Please confirm stock, delivery and payment details. Payment is pending verification.`;
+  window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(message)}`, '_blank', 'noopener');
+  showToast(savedOrder ? `Order request #${savedOrder} saved. Payment is not verified yet.` : 'WhatsApp order request opened. Payment is not verified yet.');
+}
+function buyWA(id){
+  const p=ALL_PRODUCTS.find(x=>x.id===id);if(!p)return;
+  if (!waNumber || !/^\d{10,15}$/.test(waNumber)) { showToast('Add your WhatsApp number in Admin > Contact Settings first.'); return; }
+  window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent('Hi NS SPORTS, I want to buy '+p.name+' for ₹'+p.price)}`,'_blank','noopener');
+}
+function toggleWish(id,btn){
+  if(wishlist.includes(id)){wishlist=wishlist.filter(w=>w!==id);btn.classList.remove('active');showToast('Removed from wishlist');}
+  else{wishlist.push(id);btn.classList.add('active');showToast('❤️ Added to wishlist!');}
+}
+
+/* ═══════════════════════════════════════════════════════
+   ADMIN PANEL
+═══════════════════════════════════════════════════════ */
+function openAdmin(){
+  renderAdminProductList();
+  document.getElementById('adminModal').classList.add('open');
+  switchAdminTab(1);
+}
+function closeAdmin(){
+  document.getElementById('adminModal').classList.remove('open');
+}
+function switchAdminTab(n){
+  activeAdminTab=n;
+  [1,2,3,4].forEach(i=>{
+    document.getElementById('atab'+i).classList.toggle('active',i===n);
+    document.getElementById('apanel'+i).style.display=i===n?'block':'none';
+  });
+  if(n===1) renderAdminProductList();
+  if(n===4) loadUpiAdminFields();
+}
+function renderAdminProductList(){
+  const box=document.getElementById('adminProductList');
+  if(!box) return;
+  const all=[...PRODUCTS,...ACCESSORIES];
+  if(!all.length){box.innerHTML='<div style="text-align:center;padding:30px;color:#888;">No products yet. Go to Add Product tab!</div>';return;}
+  box.innerHTML=`<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:12px;padding:10px;background:#f0f7ff;border-radius:6px;font-size:12px;color:#1e40af;font-weight:600;"><span>📦 ${PRODUCTS.length} Main Products</span><span>🎒 ${ACCESSORIES.length} Accessories</span></div>`+
+    all.map(p=>`<div class="ap-row"><div class="ap-emoji">${p.emoji||'🏏'}</div><div class="ap-info"><div class="ap-name">${p.name}</div><div class="ap-meta">${p.cat} · Stock: ${p.stock||'?'}</div></div><div class="ap-price">₹${(p.price||0).toLocaleString('en-IN')}</div><button class="ap-edit-btn" onclick="openEditProd('${p.id}')">✏️ Edit</button><button class="ap-del-btn" onclick="deleteProduct('${p.id}')">🗑 Delete</button></div>`).join('');
+}
+function openEditProd(id){
+  const p=[...PRODUCTS,...ACCESSORIES].find(x=>x.id===id);
+  if(!p) return;
+  document.getElementById('ep_id').value=id;
+  document.getElementById('ep_name').value=p.name;
+  document.getElementById('ep_price').value=p.price;
+  document.getElementById('ep_orig').value=p.origPrice||'';
+  document.getElementById('ep_cat').value=p.cat;
+  document.getElementById('ep_stock').value=p.stock||20;
+  document.getElementById('ep_badge').value=p.badge||'';
+  document.getElementById('ep_emoji').value=p.emoji||'🏏';
+  document.getElementById('ep_desc').value=p.desc||'';
+  document.getElementById('editProdModal').classList.add('open');
+}
+function closeEditProd(){document.getElementById('editProdModal').classList.remove('open');}
+function saveEditProduct(){
+  const id=document.getElementById('ep_id').value;
+  const p=[...PRODUCTS,...ACCESSORIES].find(x=>x.id===id);
+  if(!p) return;
+  p.name=document.getElementById('ep_name').value.trim()||p.name;
+  p.price=+document.getElementById('ep_price').value||p.price;
+  p.origPrice=+document.getElementById('ep_orig').value||null;
+  p.cat=document.getElementById('ep_cat').value;
+  p.stock=+document.getElementById('ep_stock').value||p.stock;
+  p.badge=document.getElementById('ep_badge').value.trim();
+  p.emoji=document.getElementById('ep_emoji').value;
+  p.desc=document.getElementById('ep_desc').value.trim();
+  closeEditProd();
+  renderProducts();renderDeals();renderAdminProductList();
+  showToast('✅ Updated: '+p.name);
+}
+function deleteProduct(id){
+  const p=[...PRODUCTS,...ACCESSORIES].find(x=>x.id===id);
+  if(!p) return;
+  if(!confirm('Delete "'+p.name+'" from your store?\n\nThis cannot be undone.')) return;
+  const pi=PRODUCTS.findIndex(x=>x.id===id);
+  const ai=ACCESSORIES.findIndex(x=>x.id===id);
+  if(pi>=0) PRODUCTS.splice(pi,1);
+  if(ai>=0) ACCESSORIES.splice(ai,1);
+  ALL_PRODUCTS.length=0;
+  PRODUCTS.forEach(x=>ALL_PRODUCTS.push(x));
+  ACCESSORIES.forEach(x=>ALL_PRODUCTS.push(x));
+  renderProducts();renderDeals();renderAdminProductList();
+  showToast('🗑 Deleted: '+p.name);
+}
+function addNewProduct(){
+  const name=document.getElementById('new_name').value.trim();
+  const price=+document.getElementById('new_price').value;
+  if(!name||!price){showToast('⚠️ Name and price are required!');return;}
+  const id='c'+Date.now();
+  const newProd={
+    id,name,brand:'NS Sports',
+    cat:document.getElementById('new_cat').value,
+    price,origPrice:+document.getElementById('new_orig').value||null,
+    emoji:'🏏',
+    stock:+document.getElementById('new_stock').value||20,
+    badge:document.getElementById('new_badge').value.trim(),
+    badgeType:'badge-new',bought:'',rating:5.0,reviews:0,
+    desc:document.getElementById('new_desc').value.trim()||name,
+    features:document.getElementById('new_features').value.trim().split('\n').filter(Boolean),
+    specs:[['Brand','NS Sports']],photo:newProductPhoto
+  };
+  if(newProd.cat==='accessories') ACCESSORIES.push(newProd);
+  else PRODUCTS.push(newProd);
+  ALL_PRODUCTS.push(newProd);
+  ['new_name','new_price','new_orig','new_badge','new_desc','new_features'].forEach(i=>{const e=document.getElementById(i);if(e)e.value='';});
+  document.getElementById('new_stock').value=20;
+  newProductPhoto=null;document.getElementById('new_emoji').value='';document.getElementById('product_image_preview').style.display='none';
+  renderProducts();renderDeals();switchAdminTab(1);
+  showToast('🎉 Added: '+name);
+}
+function saveContactSettings(){
+  const wa=document.getElementById('adWa')?.value; if(wa) waNumber=wa;
+  window._instaUrl=document.getElementById('adInsta')?.value||'';
+  const tagline=document.getElementById('adTagline')?.value||'';
+  // Update footer links
+  const footerInsta=document.getElementById('footer-insta');
+  if(footerInsta && window._instaUrl) footerInsta.onclick=()=>window.open(window._instaUrl,'_blank');
+  showToast('✅ Contact settings saved!');
+}
+function savePaymentSettings(){
+  // Razorpay credentials are intentionally read only by the backend from .env.
+  const code=document.getElementById('adPromo')?.value?.trim().toUpperCase();
+  const disc=+document.getElementById('adPromoDisc')?.value;
+  if(code) promoCode=code;
+  if(disc>0) promoDiscount=disc;
+  showToast('✅ Saved! Promo: '+promoCode+' = '+promoDiscount+'% off');
+}
+function saveAdmin(){saveContactSettings();}
+/* ═══ OWNER: UPI QR SETTINGS ═══ */
+let pendingUpiQr=null;
+function loadUpiAdminFields(){
+  const u=PAYMENT_CONFIG.methods.upi, pv=document.getElementById('adUpiQrPreview');
+  document.getElementById('adUpiId').value=u.id||'';
+  document.getElementById('adUpiPayee').value=u.payee||'';
+  if(u.qrImage){pv.src=u.qrImage;pv.style.display='block';}else pv.style.display='none';
+  pendingUpiQr=null;
+}
+function previewUpiQr(e){
+  const f=e.target.files[0]; if(!f) return;
+  const r=new FileReader();
+  r.onload=ev=>{
+    const img=new Image();
+    img.onload=()=>{
+      const max=700, k=Math.min(1,max/Math.max(img.width,img.height));
+      const c=document.createElement('canvas'); c.width=Math.round(img.width*k); c.height=Math.round(img.height*k);
+      const x=c.getContext('2d'); x.fillStyle='#fff'; x.fillRect(0,0,c.width,c.height); x.drawImage(img,0,0,c.width,c.height);
+      pendingUpiQr=c.toDataURL('image/jpeg',0.9);
+      const pv=document.getElementById('adUpiQrPreview'); pv.src=pendingUpiQr; pv.style.display='block';
+    };
+    img.src=ev.target.result;
+  };
+  r.readAsDataURL(f);
+}
+async function saveUpiSettings(){
+  const id=document.getElementById('adUpiId').value.trim();
+  const payee=document.getElementById('adUpiPayee').value.trim();
+  const key=document.getElementById('adAdminKey').value;
+  const qrImage=pendingUpiQr||PAYMENT_CONFIG.methods.upi.qrImage;
+  if(!id||!payee){showToast('Enter UPI ID and payee name.');return;}
+  if(!qrImage||!qrImage.startsWith('data:image/')){showToast('Upload your QR image first.');return;}
+  if(!key){showToast('Enter the admin password.');return;}
+  try{
+    const r=await fetch(`${API}/settings/upi`,{method:'PUT',headers:{'Content-Type':'application/json','x-admin-key':key},body:JSON.stringify({id,payee,qrImage})});
+    const d=await r.json();
+    if(!r.ok) throw new Error(d.error||'Could not save.');
+    Object.assign(PAYMENT_CONFIG.methods.upi,{id,payee,qrImage});
+    pendingUpiQr=null; document.getElementById('adAdminKey').value='';
+    showToast('✅ UPI QR saved. Customers will see it now.');
+  }catch(err){showToast('❌ '+err.message);}
+}
+async function loadStoreSettings(){
+  try{
+    const r=await fetch(`${API}/settings`); if(!r.ok) return;
+    const u=(await r.json()).upi||{};
+    if(u.id) PAYMENT_CONFIG.methods.upi.id=u.id;
+    if(u.payee) PAYMENT_CONFIG.methods.upi.payee=u.payee;
+    if(u.qrImage) PAYMENT_CONFIG.methods.upi.qrImage=u.qrImage;
+  }catch(_e){}
+}
+
+function openSocial(){window.open(window._instaUrl||'https://www.instagram.com/nandu_sports_12/','_blank');}
+document.getElementById('editProdModal').addEventListener('click',function(e){if(e.target===this)closeEditProd();});
+/* ═══════════════════════════════════════════════════════
+   SAVE FOR LATER
+═══════════════════════════════════════════════════════ */
+function saveForLater(id) {
+  const item = cart.find(c => c.id === id);
+  if (!item) return;
+  if (!savedForLater.find(s => s.id === id)) {
+    savedForLater.push({...item});
+  }
+  cart = cart.filter(c => c.id !== id);
+  renderCart();
+  showToast('💾 Saved for later!');
+}
+function renderSavedItems() {
+  const box = document.getElementById('savedItemsList');
+  if (!box) return;
+  if (!savedForLater.length) {
+    box.innerHTML = '<div style="text-align:center;padding:40px;color:#888;"><div style="font-size:3rem;margin-bottom:12px;">💾</div><p>No items saved for later.</p></div>';
+    return;
+  }
+  box.innerHTML = savedForLater.map(item => `
+    <div style="display:flex;gap:12px;padding:12px 0;border-bottom:1px solid #eee;align-items:center;">
+      <div style="width:60px;height:60px;background:#f7f8f8;border:1px solid #eee;border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:2rem;flex-shrink:0;overflow:hidden;">
+        ${item.photo ? `<img src="${item.photo}" style="width:100%;height:100%;object-fit:contain;padding:4px;" alt="">` : item.emoji}
+      </div>
+      <div style="flex:1;">
+        <div style="font-size:13px;font-weight:600;color:#007185;margin-bottom:4px;">${item.name}</div>
+        <div style="font-size:14px;font-weight:700;color:#B12704;margin-bottom:6px;">₹${item.price.toLocaleString('en-IN')}</div>
+        <div style="display:flex;gap:8px;">
+          <button onclick="moveToCart('${item.id}')" style="background:#F0C14B;border:1px solid #a88734;padding:5px 14px;font-size:12px;font-weight:700;border-radius:20px;cursor:pointer;font-family:'DM Sans';">Move to Cart</button>
+          <button onclick="removeSaved('${item.id}')" style="background:none;border:none;color:#007185;font-size:12px;cursor:pointer;font-family:'DM Sans';">Delete</button>
+        </div>
+      </div>
+    </div>`).join('');
+}
+function moveToCart(id) {
+  const item = savedForLater.find(s => s.id === id);
+  if (!item) return;
+  const ex = cart.find(c => c.id === id);
+  if (ex) ex.qty++;
+  else cart.push({...item, qty: 1});
+  savedForLater = savedForLater.filter(s => s.id !== id);
+  renderCart();
+  renderSavedItems();
+  showToast('🛒 Moved to cart!');
+}
+function removeSaved(id) {
+  savedForLater = savedForLater.filter(s => s.id !== id);
+  renderSavedItems();
+  showToast('Removed from saved items');
+}
+
+/* ═══════════════════════════════════════════════════════
+   INFO PAGES MODAL
+═══════════════════════════════════════════════════════ */
+function contactWhatsApp(){ if (!waNumber || !/^\d{10,15}$/.test(waNumber)) { showToast('Store contact setup required. Add your WhatsApp number in Admin > Contact Settings.'); return; } window.open('https://wa.me/'+waNumber,'_blank','noopener'); }
+
+const INFO_CONTENT = {
+  about: { title: 'About NS Sports', body: `<h3 style="margin-bottom:12px;">About NS Sports 🏏</h3><p>NS SPORTS is a cricket equipment store concept offering bats, protective equipment and accessories. Add your verified shop address, delivery areas and business claims before publishing.</p><p style="margin-top:12px;">Product specifications and availability should be confirmed against the actual stock before publishing.</p>` },
+  story: { title: 'Our Story', body: `<h3 style="margin-bottom:12px;">Our Story 🌟</h3><p>NS SPORTS is a local sports-store concept focused on cricket bats, protective equipment and accessories for practice, box cricket and team play.</p><p style="margin-top:12px;">Update this section with your own shop history, delivery area and verified business details before publishing.</p>` },
+  careers: { title: 'Careers', body: `<h3 style="margin-bottom:12px;">Join Our Team 💼</h3><p>We're always looking for passionate cricket lovers to join the NS Sports family. Current openings:<br><br>• Sales Executive (Mumbai)<br>• Social Media Manager<br>• Delivery Partner</p><p style="margin-top:12px;">Send your resume to us via WhatsApp at +91 YOUR BUSINESS PHONE.</p>` },
+  press: { title: 'Press Releases', body: `<h3 style="margin-bottom:12px;">Press & Media 📰</h3><p>For press inquiries and partnerships, add verified coverage or business information and your own contact details.</p>` },
+  cares: { title: 'NS Sports Cares', body: `<h3 style="margin-bottom:12px;">NS Sports Cares ❤️</h3><p>We believe cricket is for everyone. Update this section with your own community activities and verified initiatives.</p>` },
+  orders: { title: 'Your Orders', body: `<h3 style="margin-bottom:12px;">Track Your Orders 📦</h3><p>To track your order or check order status, please WhatsApp us at <strong>+91 YOUR BUSINESS PHONE</strong> with your order details.</p><p style="margin-top:12px;"><strong>Order Confirmation:</strong> Order confirmation timing depends on store processing and payment verification.<br><br><strong>Delivery:</strong> Most orders are delivered within 1–3 business days in Mumbai. Pan-India delivery takes 3–7 days.</p>` },
+  returns: { title: 'Returns & Refunds', body: `<h3 style="margin-bottom:12px;">Returns & Refunds ↩️</h3><p><strong>7-Day Return Policy:</strong> We accept returns within 7 days of delivery if the product is unused and in original condition.</p><p style="margin-top:12px;"><strong>How to Return:</strong><br>1. WhatsApp us at +91 YOUR BUSINESS PHONE<br>2. Share your order details and reason for return<br>3. We'll arrange pickup or guide you on returning the item<br><br><strong>Refund:</strong> Processed within 3–5 business days after we receive the item.</p>` },
+  cancel: { title: 'Cancellation Policy', body: `<h3 style="margin-bottom:12px;">Cancellation Policy ❌</h3><p>Orders can be cancelled before they are dispatched. To cancel, WhatsApp us immediately at +91 YOUR BUSINESS PHONE with your order number.</p><p style="margin-top:12px;">Once an order has been dispatched, we cannot cancel it, but you may initiate a return after delivery.</p>` },
+  delivery: { title: 'Delivery Info', body: `<h3 style="margin-bottom:12px;">Delivery Information 🚚</h3><p><strong>Free Delivery:</strong> On orders above ₹1,499 within Mumbai.</p><p style="margin-top:10px;"><strong>Standard Delivery Charges:</strong><br>• Mumbai: ₹60 (orders below ₹1,499)<br>• Maharashtra: ₹80<br>• Pan India: ₹100–₹150</p><p style="margin-top:10px;"><strong>Delivery Time:</strong><br>• Mumbai: 1–2 days (Express available)<br>• Maharashtra: 2–4 days<br>• Rest of India: 4–7 days</p>` },
+  faq: { title: 'Help & FAQ', body: `<h3 style="margin-bottom:12px;">Frequently Asked Questions ❓</h3><p><strong>Q: Are NS Sports bats tournament approved?</strong><br>A: Check the product details or confirm tournament approval with the store before purchase.</p><p style="margin-top:10px;"><strong>Q: Do bats come pre-knocked?</strong><br>A: Check the description of each bat to confirm whether it is pre-knocked.</p><p style="margin-top:10px;"><strong>Q: Is there a warranty?</strong><br>A: Warranty coverage varies by product; confirm the warranty terms before purchase.</p><p style="margin-top:10px;"><strong>Q: Can I visit your store?</strong><br>A: WhatsApp us to schedule a visit or demo at our Mumbai location.</p>` },
+  account: { title: 'Your Account', body: `<h3 style="margin-bottom:12px;">Your Account 👤</h3><p>NS Sports currently operates via WhatsApp and direct orders. For order history, invoices, or account queries, please contact us at <strong>+91 YOUR BUSINESS PHONE</strong>.</p>` },
+  bulk: { title: 'Bulk & Team Orders', body: `<h3 style="margin-bottom:12px;">Bulk & Team Orders 🏆</h3><p>Planning a tournament? Equipping your team? NS Sports offers special pricing for bulk orders of 5+ bats.</p><p style="margin-top:12px;"><strong>Bulk Discounts:</strong><br>• 5–9 bats: 5% extra off<br>• 10–19 bats: 10% extra off<br>• 20+ bats: 15% extra off + free kit bag</p><p style="margin-top:12px;">Contact us on WhatsApp to place your bulk order!</p>` },
+};
+function openInfoModal(key) {
+  const page = INFO_CONTENT[key];
+  if (!page) return;
+  document.getElementById('infoModalTitle').textContent = page.title;
+  document.getElementById('infoModalBody').innerHTML = page.body;
+  document.getElementById('infoModal').classList.add('open');
+}
+function closeInfoModal() {
+  document.getElementById('infoModal').classList.remove('open');
+}
+document.getElementById('infoModal').addEventListener('click', function(e) { if (e.target === this) closeInfoModal(); });
+document.getElementById('savedModal').addEventListener('click', function(e) { if (e.target === this) this.classList.remove('open'); });
+
+/* ═══ PAYMENTS (driven by PAYMENT_CONFIG) ═══ */
+function renderPayButtons(){
+  const m=PAYMENT_CONFIG.methods, box=document.getElementById('payButtons'); if(!box) return;
+  const btn=(fn,label,st)=>`<button onclick="${fn}" style="width:100%;border-radius:20px;padding:11px;font-size:14px;font-weight:700;cursor:pointer;margin-bottom:8px;font-family:'DM Sans',sans-serif;${st}">${label}</button>`;
+  box.innerHTML=
+    (m.upi.enabled?btn('openUPI()',m.upi.label,'background:#1e6fff;color:#fff;border:none;'):'')+
+    (m.razorpay.enabled?btn('proceedCheckout()',m.razorpay.label,'background:#F0C14B;color:#0F1111;border:1px solid #a88734;'):'')+
+    (m.cod.enabled?btn('payCOD()',m.cod.label,'background:#232F3E;color:#fff;border:none;'):'')+
+    (m.whatsapp.enabled?btn('orderViaWA()',m.whatsapp.label,'background:#25D366;color:#fff;border:none;'):'');
+}
+function getCustomer(){
+  const name=(prompt('Enter your full name:')||'').trim(); if(!name) return null;
+  const phone=(prompt('Enter your 10-digit phone number:')||'').trim();
+  if(!/^\d{10}$/.test(phone)){showToast('Enter a valid 10-digit phone number.');return null;}
+  const address=(prompt('Delivery address with area and PIN code:')||'').trim();
+  if(address.length<8){showToast('Please enter a complete delivery address.');return null;}
+  return {customer_name:name,customer_phone:phone,customer_address:address};
+}
+async function saveOrder(method,cust,ref){
+  try{
+    const r=await fetch(`${API}/orders`,{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({...cust,payment_method:method,payment_ref:ref||null,items:cart.map(i=>({product_id:i.id,quantity:i.qty})),promo_code:promoOn?promoCode:null})});
+    const d=await r.json(); if(!r.ok) throw new Error(d.error||'Order failed'); return d.order_id;
+  }catch(e){showToast('Could not save order: '+e.message);return null;}
+}
+async function payCOD(){
+  if(!cart.length){showToast('Your cart is empty!');return;}
+  const c=getCustomer(); if(!c) return;
+  const id=await saveOrder('COD',c); if(!id) return;
+  showToast(`Order #${id} placed. Pay cash on delivery.`);
+  cart=[];promoOn=false;renderCart();setTimeout(closeCart,1500);
+}
+function openUPI(){
+  if(!cart.length){showToast('🛒 Add items to cart first!');return;}
+  const u=PAYMENT_CONFIG.methods.upi;
+  document.getElementById('upiAmountDisplay').textContent='₹'+getTotals().total.toLocaleString('en-IN');
+  document.getElementById('upiIdDisplay').textContent=u.id||'Set your UPI ID in PAYMENT_CONFIG';
+  document.getElementById('upiQrBox').innerHTML=u.qrImage
+    ?`<img src="${u.qrImage}" alt="UPI QR" style="width:100%;max-width:280px;height:auto;border:2px solid #e2e8f0;border-radius:8px;display:block;margin:0 auto 8px;">`
+    :'<div style="width:200px;height:200px;border:2px dashed #94a3b8;border-radius:8px;display:flex;align-items:center;justify-content:center;margin:0 auto 8px;padding:18px;color:#475569;font-size:13px;text-align:center;">Add your own UPI QR image path in PAYMENT_CONFIG</div>';
+  document.getElementById('upiModal').classList.add('open');
+}
+function closeUPI(){document.getElementById('upiModal').classList.remove('open');}
+function upiReady(){const u=PAYMENT_CONFIG.methods.upi;if(!/^[^\s@]+@[^\s@]+$/.test(u.id||'')){showToast('Set your own UPI ID in PAYMENT_CONFIG first.');return false;}return true;}
+function copyUPI(){if(!upiReady())return;navigator.clipboard?.writeText(PAYMENT_CONFIG.methods.upi.id).then(()=>showToast('UPI ID copied'));}
+function openUPIApp(app){
+  if(!upiReady())return;
+  const u=PAYMENT_CONFIG.methods.upi;
+  window.location.href=`upi://pay?pa=${encodeURIComponent(u.id)}&pn=${encodeURIComponent(u.payee)}&am=${getTotals().total}&cu=INR&tn=${encodeURIComponent('NS Sports Order')}`;
+}
+async function confirmUPIPayment(){
+  if(!cart.length){showToast('Add items to cart first.');return;}
+  if(!upiReady())return;
+  const c=getCustomer(); if(!c) return;
+  const utr=(prompt('After paying, enter your UPI transaction / UTR number:')||'').trim();
+  if(!utr){showToast('UTR number is needed so the store can verify your payment.');return;}
+  const id=await saveOrder('UPI',c,utr); if(!id) return;
+  if(/^\d{10,15}$/.test(waNumber||'')){
+    const msg=`Hi NS SPORTS, I paid ₹${getTotals().total} via UPI. UTR: ${utr}. Order #${id}. Name: ${c.customer_name}. Please verify.`;
+    window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(msg)}`,'_blank','noopener');
+  }
+  showToast(`Order #${id} saved. Payment will be confirmed after verification.`);
+  closeUPI();cart=[];promoOn=false;renderCart();setTimeout(closeCart,1500);
+}
+document.getElementById('upiModal').addEventListener('click',function(e){if(e.target===this)closeUPI();});
+
+document.getElementById('adminModal').addEventListener('click',function(e){if(e.target===this)this.classList.remove('open');});document.getElementById('pdModal').addEventListener('click',function(e){if(e.target===this)closePD();});
+document.addEventListener('keydown',e=>{if(e.ctrlKey&&e.shiftKey&&e.key==='A'){e.preventDefault();openAdmin();}});
+window.addEventListener('scroll',()=>document.getElementById('scrollTopBtn').classList.toggle('vis',scrollY>400));
+
+/* ═══════════════════════════════════════════════════════
+   BACKEND API
+═══════════════════════════════════════════════════════ */
+const API = 'http://localhost:3000/api';
+
+async function loadProductsFromAPI() {
+  try {
+    const res = await fetch(`${API}/products`);
+    if (!res.ok) throw new Error('Server error');
+    const data = await res.json();
+
+    // Map DB fields to app fields
+    const mapped = data.map(p => ({
+      id: p.id,
+      name: p.name,
+      brand: p.brand || 'NS Sports',
+      cat: p.category,
+      price: p.price,
+      origPrice: p.original_price || null,
+      rating: parseFloat(p.rating) || 4.5,
+      reviews: p.reviews || 0,
+      stock: p.stock || 20,
+      badge: p.badge || '',
+      badgeType: p.badge ? 'badge-best' : '',
+      bought: p.bought_label || '',
+      desc: p.description || '',
+      features: [],
+      specs: [],
+      emoji: p.emoji || '🏏',
+      photo: null
+    }));
+
+    // Split into products and accessories
+    PRODUCTS.length = 0;
+    ACCESSORIES.length = 0;
+    mapped.forEach(p => {
+      if (p.cat === 'accessories') ACCESSORIES.push(p);
+      else PRODUCTS.push(p);
+    });
+    ALL_PRODUCTS.length = 0;
+    mapped.forEach(p => ALL_PRODUCTS.push(p));
+
+    // Load photos from localStorage
+    ALL_PRODUCTS.forEach(p => {
+      const s = localStorage.getItem('nsp_' + p.id);
+      if (s) p.photo = s;
+    });
+
+    renderProducts();
+    renderDeals();
+    renderAlsoBought();
+    showToast('🟢 Live data loaded from database!');
+  } catch (err) {
+    console.warn('Backend not reachable, using local data:', err.message);
+    renderProducts();
+    renderDeals();
+    renderAlsoBought();
+  }
+}
+
+async function saveOrderToDB(orderData) {
+  try {
+    const res = await fetch(`${API}/orders`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(orderData)
+    });
+    const result = await res.json();
+    if (result.success) {
+      showToast(`✅ Order #${result.order_id} saved to database!`);
+      return result.order_id;
+    }
+  } catch (err) {
+    console.warn('Could not save order to DB:', err.message);
+  }
+  return null;
+}
+
+/* ═══════════════════════════════════════════════════════
+   INIT
+═══════════════════════════════════════════════════════ */
+loadProductsFromAPI();
+renderReviews();
+renderPayButtons();
+loadStoreSettings();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+{
+  "name": "ns-sports-store",
+  "version": "2.0.0",
+  "description": "NS SPORTS cricket equipment e-commerce website and API",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mysql2": "^3.3.3",
+    "razorpay": "^2.9.6"
+  }
+}
